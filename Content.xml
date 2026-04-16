@@ -2,4 +2,6 @@
 <config>
 	<version>1.0</version>
 	<timeout>30</timeout>
+	<maxtimeout>300</maxtimeout>
+	<user>Sathish</user>
 </config>
