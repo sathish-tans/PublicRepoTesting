@@ -2,4 +2,7 @@
 <config>
 	<version>1.0</version>
 	<timeout>30</timeout>
+	<user>Kumar</user>
+	<basic>followed</basic>
+	<atr>merge</atr>
 </config>
