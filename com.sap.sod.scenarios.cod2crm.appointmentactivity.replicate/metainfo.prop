@@ -1,0 +1,5 @@
+#Store metainfo properties
+#Sun May 24 23:18:24 IST 2026
+description=com.sap.sod.scenarios.cod2crm.appointmentactivity.replicate
+source=COD
+target=CRM

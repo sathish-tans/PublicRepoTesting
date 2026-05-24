@@ -1,0 +1,9 @@
+#Wed Nov 11 12:49:10 IST 2020
+COD_enableBasicAuthentication_12=false
+client=1
+COD_address_15=/COD/CRM/AppointmentReplicationOut
+COD_issuer=cn\=sap passport ca,o\=sap trust community,c\=de
+host=prod1
+COD_wsdlURL_14=/wsdl/Service.wsdl
+CRM_enableBasicAuthentication_10=0
+COD_subject=cn\=m000000000740054571,ou\=i000000000740054571 - businessbydesign,o\=sap trust community,c\=de
