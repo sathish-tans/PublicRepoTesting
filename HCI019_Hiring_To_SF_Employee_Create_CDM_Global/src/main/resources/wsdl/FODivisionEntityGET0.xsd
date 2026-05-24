@@ -1,1 +1,1 @@
-618866a6d3f829e42674d5affcc5e38eb0d3e77b
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="FODivision"><xs:complexType><xs:sequence><xs:element minOccurs="1" maxOccurs="unbounded" name="FODivision"><xs:complexType><xs:sequence><xs:element type="xs:decimal" nillable="false" maxOccurs="unbounded" name="cust_leveln" xmlns=""/></xs:sequence></xs:complexType></xs:element></xs:sequence></xs:complexType></xs:element></xs:schema>

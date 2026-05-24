@@ -1,1 +1,91 @@
-1662f16a6ea2b01782bae2ba2ed849ac31d9e233
+Manifest-Version: 1.0
+Bundle-SymbolicName: HCI019_Hiring_To_SF_Employee_Create_CDM_Global; sin
+ gleton:=true
+Origin-Bundle-SymbolicName: HCI019_Hiring_To_SF_Employee_Create_CDM_Glob
+ al
+Bundle-ManifestVersion: 2
+Origin-Bundle-Version: 1.0.15
+Import-Package:  com.sap.esb.camel.security.cms.smime, com.sap.esb.camel
+ .http.ahc.configurer;version="[1,2)", com.sap.gateway.core.ip.component
+ .odata4.api, com.sap.it.rt.adapter.odata.response, com.sap.it.rt.adapte
+ r.sfsf.component, com.sap.it.rt.adapter.odata.destination, com.sap.it.r
+ t.adapter.odata.auth, com.sap.gateway.core.ip.processor.odataprocessors
+ , com.sap.gateway.core.ip.component.odata, com.sap.it.nm.security, com.
+ sap.it.nm.concurrent, com.sap.esb.camel.route.policy, org.springframewo
+ rk.transaction.support, org.springframework.jdbc.datasource, org.mozill
+ a.javascript, org.codehaus.groovy.reflection, org.codehaus.groovy.runti
+ me.callsite, org.codehaus.groovy.runtime.typehandling, org.codehaus.gro
+ ovy.runtime, groovy.lang, org.codehaus.groovy.jsr223, com.sap.gateway.i
+ p.core.customdev.util, com.sap.gateway.ip.core.customdev.logging, com.s
+ ap.gateway.ip.core.customdev.processor, com.sap.it.rt.xmltocsv.converte
+ r, com.sap.it.api.mapping, com.sap.aii.mapping.value.api, com.sap.esb.c
+ amel.message.storage.api, com.sap.it.op.agent.trace, com.sap.esb.webser
+ vice.security.crypto.api, com.sap.esb.webservice.policy.alternative.sel
+ ector, org.apache.cxf.ws.security.wss4j, org.apache.wss4j.common.crypto
+ , javax.security.auth.callback, com.sap.esb.camel.jdbc.idempotency.reor
+ g, com.sap.it.iflow.model.runtime, com.sap.it.iflow.model, com.sap.sod.
+ utils.soap.processors, com.sap.esb.camel.jdbc.inprogress.repository, co
+ m.sap.esb.camel.jdbc.idempotency.repository, com.sap.esb.camel.security
+ .cms, org.apache.camel.processor.idempotent.jdbc, org.apache.camel.spi,
+  com.sap.esb.camel.endpoint.configurator.api, com.sap.it.op.ed, com.sap
+ .esb.webservice.authorization.supplier.api, org.apache.cxf.interceptor.
+ security, com.sap.esb.camel.mpl.access, com.sap.esb.camel.eip.splitter,
+  com.sap.it.op.agent.ed.plugins.camel.api, com.sap.esb.camel.xmljson, n
+ et.sf.saxon.xpath, net.sf.saxon,com.sap.esb.application.services.cxf.in
+ terceptor,com.sap.esb.security,com.sap.it.op.agent.api,com.sap.it.op.ag
+ ent.collector.camel,com.sap.it.op.agent.collector.cxf,com.sap.it.op.age
+ nt.mpl,com.sap.sod.utils.cxf.interceptors,com.sap.sod.utils.encoding.pr
+ ocessors,com.sap.sod.utils.idoc.soap,com.sap.sod.utils.soap,com.sap.sod
+ .utils.idoc.soap.processors,javax.jms,javax.jws,javax.wsdl,javax.xml.bi
+ nd.annotation,javax.xml.namespace,javax.xml.ws,org.apache.camel;version
+ ="2.8",org.apache.camel.builder;version="2.8",org.apache.camel.builder.
+ xml;version="2.8",org.apache.camel.component.cxf,org.apache.camel.model
+ ;version="2.8",org.apache.camel.processor;version="2.8",org.apache.came
+ l.processor.aggregate;version="2.8",org.apache.camel.spring.spi;version
+ ="2.8",org.apache.commons.logging,org.apache.cxf.binding,org.apache.cxf
+ .binding.soap,org.apache.cxf.binding.soap.spring,org.apache.cxf.bus,org
+ .apache.cxf.bus.resource,org.apache.cxf.bus.spring,org.apache.cxf.busli
+ fecycle,org.apache.cxf.catalog,org.apache.cxf.configuration.jsse,org.ap
+ ache.cxf.configuration.spring,org.apache.cxf.endpoint,org.apache.cxf.he
+ aders,org.apache.cxf.interceptor,org.apache.cxf.management.counters,org
+ .apache.cxf.message,org.apache.cxf.phase,org.apache.cxf.resource,org.ap
+ ache.cxf.service.factory,org.apache.cxf.service.model,org.apache.cxf.tr
+ ansport,org.apache.cxf.transport.common.gzip,org.apache.cxf.transport.h
+ ttp,org.apache.cxf.transport.http.policy,org.apache.cxf.workqueue,org.a
+ pache.cxf.ws.rm.persistence,org.apache.cxf.wsdl11,org.osgi.framework;ve
+ rsion="1.6.0",org.osgi.service.blueprint;version="[1.0.0,2.0.0)",org.sl
+ f4j;version="1.6",org.springframework.beans.factory.config;version="3.0
+ ",com.sap.aii.ib.bom.flib.types,com.sap.aii.mapping.api,com.sap.aii.map
+ pingtool.flib3,com.sap.aii.mappingtool.flib7,com.sap.aii.mappingtool.tf
+ 3,com.sap.aii.mappingtool.tf3.rt,com.sap.aii.mappingtool.tf7,com.sap.ai
+ i.mappingtool.tf7.rt,com.sap.aii.mappingtool.tfapi,com.sap.esb.webservi
+ ce.audit.log
+Origin-Bundle-Name: barclaysHugeIflow
+SAP-RuntimeProfile: iflmap
+Bundle-Name: barclaysHugeIflow
+Bundle-Version: 1.0.15
+Bundle-ClassPath: .,/src/main/resources/library/jaxen-1.1.1.jar,/src/mai
+ n/resources/library/jdom-1.1.3.jar,/mapping/Mapping_EmpJob_Upsert.jar,/
+ mapping/Mapping_workOrder_Upsert.jar,/mapping/Mapping_PerPerson_Upsert.
+ jar,/mapping/Mapping_EmpWorkPermit_Upsert.jar,/mapping/Mapping_PerGloba
+ lInfoGBR_Upsert.jar,/mapping/Mapping_PerPhone_Upsert.jar,/mapping/Mappi
+ ng_EmpPayCompRecurring_Upsert.jar,/mapping/Mapping_User_Upsert.jar,/map
+ ping/Mapping_EmpCompensation_Upsert.jar,/mapping/Mapping_PerEmail_Upser
+ t.jar,/mapping/Mapping_PaymentInformationDetailV3_Upsert.jar,/mapping/M
+ apping_PerGlobalInfoIND_Upsert.jar,/mapping/Mapping_PerPersonal_Upsert.
+ jar,/mapping/Mapping_EmpPayCompNonRecurring_Upsert.jar,/mapping/Mapping
+ _PerNationalID_Upsert.jar,/mapping/Mapping_PerAddressDELFT_Upsert.jar,/
+ mapping/Mapping_PerGlobalInfoJPN_Upsert.jar,/mapping/Mapping_EmpEmploym
+ ent_Upsert.jar,/mapping/Mapping_PerEmergencyContacts_Upsert.jar,/mappin
+ g/Mapping_PerGlobalInfoUSA_Upsert.jar
+SAP-NodeType: IFLMAP
+Origin-ModifiedDate: 1731470383606
+Import-Service:  com.sap.esb.camel.security.cms.SignatureSplitter;multip
+ le:=false, org.apache.cxf.ws.rm.persistence.RMStore;multiple:=false, ja
+ vax.sql.DataSource;multiple:=false;filter="(dataSourceName=default)", c
+ om.sap.esb.security.TrustManagerFactory;multiple:=false,  com.sap.esb.s
+ ecurity.KeyManagerFactory;multiple:=false, com.sap.esb.camel.endpoint.c
+ onfigurator.api.EndpointConfigurator;multiple:=false;filter="(endpointT
+ ype=SFTP)",com.sap.esb.webservice.audit.log.AuditLogger 
+SAP-BundleType: IntegrationFlow
+

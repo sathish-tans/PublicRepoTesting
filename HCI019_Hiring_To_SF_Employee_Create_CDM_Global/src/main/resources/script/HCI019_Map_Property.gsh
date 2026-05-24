@@ -1,1 +1,8 @@
-79bd4af17b216f029b41cfba8cbe7aa89a5cb791
+import com.sap.it.api.mapping.*
+
+def String getProperty(String property,MappingContext context)
+ {
+ 	String propVal = context.getProperty(property);
+  	propVal = propVal.toString();
+  	return propVal;
+ } 

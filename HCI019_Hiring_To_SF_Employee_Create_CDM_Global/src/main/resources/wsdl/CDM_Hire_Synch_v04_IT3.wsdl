@@ -1,1 +1,416 @@
-64e1c803f10398d962eacf855d92bbf302cc46cb
+﻿
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:p1="http://barclays.com/hci/SF/CDMHire" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="CDM_Hire_Synch" targetNamespace="http://barclays.com/hci/SF/CDMHire">
+   <wsp:UsingPolicy wsdl:required="true" />
+   <wsdl:documentation />
+   <wsp:Policy wsu:Id="OP_CDM_Hire_Synch" />
+   <wsdl:types>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://barclays.com/hci/SF/CDMHire" targetNamespace="http://barclays.com/hci/SF/CDMHire">
+         <xsd:element name="candidatesInfo" type="candidates" />
+         <xsd:element name="hiringCDMResponse" type="hiringCDMResponse" />
+         <xsd:complexType name="candidates">
+            <xsd:sequence>
+               <xsd:element name="candidate" type="candidate" maxOccurs="unbounded" />
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="compensationInfo">
+            <xsd:sequence>
+               <xsd:element name="payGroup" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="personalDocumentsInfo">
+            <xsd:sequence>
+               <xsd:element name="country" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="documentNumber" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="documentType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="expirationDate" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="issueDate" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="issuePlace" type="xsd:string" minOccurs="0" />
+               <xsd:element name="issusingAuthority" type="xsd:string" minOccurs="0" />
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="emergencyContactInfo">
+            <xsd:sequence>
+               <xsd:element name="Name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="Phone" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="relationship" type="xsd:string" minOccurs="0" />
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="candidateResp">
+            <xsd:sequence>
+               <xsd:element name="workflowID" type="xsd:string" minOccurs="0" />
+               <xsd:element name="candidateId" type="xsd:string" minOccurs="0" />
+               <xsd:element name="userId" type="xsd:string" minOccurs="0" />
+               <xsd:element name="ABSA_ID" type="xsd:string" minOccurs="0" />
+               <xsd:element name="status" type="xsd:string" minOccurs="0" />
+               <xsd:element name="message" type="xsd:string" minOccurs="0" />
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="jobInfo">
+            <xsd:sequence>
+            	<xsd:element name="businessUnit" type="xsd:string"
+            		minOccurs="1" maxOccurs="1" />
+            	<xsd:element name="company" type="xsd:string"
+            		minOccurs="1" maxOccurs="1" />
+            	<xsd:element name="costCenter" type="xsd:string"
+            		minOccurs="1" maxOccurs="1" />
+
+            	<xsd:element name="eventReason" type="xsd:string"
+            		minOccurs="1" maxOccurs="1" />
+            	<xsd:element name="positionEntryDate"
+            		type="xsd:dateTime" minOccurs="1" maxOccurs="1" />
+            	<xsd:element name="countryOfCompany" type="xsd:string"
+            		minOccurs="1" maxOccurs="1" />
+            	<xsd:element name="employeeNoticePeriod"
+            		type="xsd:string" minOccurs="0" />
+
+            	<xsd:element name="leadershipType" type="xsd:string"
+            		minOccurs="0" />
+            	<xsd:element name="contractType" type="xsd:string"
+            		minOccurs="1" maxOccurs="1" />
+            	<xsd:element name="actualWorkingHours" type="xsd:string"
+            		minOccurs="1" maxOccurs="1" />
+            	<xsd:element name="employeeClass" type="xsd:string"
+            		minOccurs="1" maxOccurs="1" />
+            	<xsd:element name="employmentType" type="xsd:string"
+            		minOccurs="1" maxOccurs="1" />
+            	<xsd:element name="fte" type="xsd:double" minOccurs="0" />
+
+            	<xsd:element name="jobCode" type="xsd:string"
+            		minOccurs="1" maxOccurs="1" />
+            	<xsd:element name="Location" type="xsd:string"
+            		minOccurs="1" maxOccurs="1" />
+            	<xsd:element name="managerId" type="xsd:string"
+            		minOccurs="1" maxOccurs="1" />
+            	<xsd:element name="Position" type="xsd:string"
+            		minOccurs="1" maxOccurs="1" />
+            	<xsd:element name="supervisorLevel" type="xsd:string"
+            		minOccurs="1" maxOccurs="1" />
+            	<xsd:element name="incompleteHire" type="xsd:boolean"
+            		minOccurs="0" />
+            	<xsd:element name="probationPeriodEndDate"
+            		type="xsd:dateTime" minOccurs="0" />
+            	<xsd:element name="contractEndDate" type="xsd:dateTime"
+            		minOccurs="0" />
+            	<xsd:element name="standardHours" type="xsd:double"
+            		minOccurs="0" />
+            	<xsd:element name="isCompetitionClauseActive"
+            		type="xsd:boolean" minOccurs="0" />
+            	<xsd:element name="workingTimeDirective"
+            		type="xsd:boolean" minOccurs="0" />
+            	<xsd:element name="wtdHoursLimit" type="xsd:string"
+            		minOccurs="0" />
+            	<xsd:element name="workingDaysPerWeek" type="xsd:string"
+            		minOccurs="1" maxOccurs="1" />
+            	<xsd:element name="needDriver" type="xsd:boolean"
+            		minOccurs="0" />
+            	<xsd:element name="revenueProducer" type="xsd:string"
+            		minOccurs="0" />
+            	<xsd:element name="holidayCalendarCode"
+            		type="xsd:string" minOccurs="0" />
+            	<xsd:element name="workScheduleCode" type="xsd:string"
+            		minOccurs="0" />
+            	<xsd:element name="timeTypeProfileCode"
+            		type="xsd:string" minOccurs="0" />
+            	<xsd:element name="timeRecordingProfile"
+            		type="xsd:string" minOccurs="0" />
+            	<xsd:element name="timeRecordingAdmissibility"
+            		type="xsd:string" minOccurs="0" />
+            	<xsd:element name="timeRecordingVariant"
+            		type="xsd:string" minOccurs="0" />
+            	<xsd:element name="department" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="BBS" type="xsd:string" minOccurs="0"
+            		maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="SBBS" type="xsd:string" minOccurs="0"
+            		maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="BBSL1" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="BBSL2" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="BBSL3" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="BBSL4" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="BBSL5" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="departmentCode" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="locationCode" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="timeZone" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="costCenterCode" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="GAHL1" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="GAHL2" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="GAHL3" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="GAHL4" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="GAHL5" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="SGAHC" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="SGHAL1" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="SGHAL2" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="SGHAL3" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="SGHAL4" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="SGHAL5" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="payScaleType" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="payScaleArea" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="jobDesignationCode" type="xsd:string"
+            		minOccurs="0" maxOccurs="1">
+            	</xsd:element>
+            	<xsd:element name="startDateCorpGrade" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="hiringCDMResponse">
+            <xsd:sequence>
+               <xsd:element name="candidate" type="candidateResp" maxOccurs="unbounded" />
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="personalInfo">
+            <xsd:sequence>
+               <xsd:element name="birthName" type="xsd:string" minOccurs="0" />
+               <xsd:element name="firstName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="gender" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="lastName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="initials" type="xsd:string" minOccurs="0" />
+               <xsd:element name="maritalStatus" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="middleName" type="xsd:string" minOccurs="0" />
+               <xsd:element name="nationality" type="xsd:string" minOccurs="0" />
+			   <xsd:element name="secondNationality" type="xsd:string" minOccurs="0" />
+               <xsd:element name="nativePreferredLang" type="xsd:string" minOccurs="0" />
+               <xsd:element name="preferredName" type="xsd:string" minOccurs="0" />
+               <xsd:element name="Salutation" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            </xsd:sequence>
+         </xsd:complexType>
+		 <xsd:complexType name="personalInfoJPN">
+            <xsd:sequence>
+               <xsd:element name="lastNameKanji" type="xsd:string" minOccurs="0" />
+               <xsd:element name="nameKanji" type="xsd:string" minOccurs="0" />
+               <xsd:element name="nameKatakana" type="xsd:string" minOccurs="0" />
+               <xsd:element name="lastNameKatakana" type="xsd:string" minOccurs="0" />
+            </xsd:sequence>
+         </xsd:complexType>
+		 <xsd:complexType name="personalInfoUSA">
+            <xsd:sequence>
+               <xsd:element name="veteran" type="xsd:string" minOccurs="0" />
+               <xsd:element name="disabilityUSA" type="xsd:string" minOccurs="0" />
+               <xsd:element name="ethnicityUSA" type="xsd:string" minOccurs="0" />
+            </xsd:sequence>
+         </xsd:complexType>
+		 <xsd:complexType name="personalInfoIND">
+            <xsd:sequence>
+               <xsd:element name="disabilityIND" type="xsd:string" minOccurs="0" />
+               <xsd:element name="ethnicityIND" type="xsd:string" minOccurs="0" />
+               <xsd:element name="fatherName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="numberOfChildren" type="xsd:string" minOccurs="0" />
+            </xsd:sequence>
+         </xsd:complexType>
+		 <xsd:complexType name="personalInfoGBR">
+            <xsd:sequence>
+               <xsd:element name="disabilityGBR" type="xsd:string" minOccurs="0" />
+               <xsd:element name="ethnicityGBR" type="xsd:string" minOccurs="0" />
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="addressInfo">
+            <xsd:sequence>
+               <xsd:element name="address1" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="address2" type="xsd:string" minOccurs="0" />
+               <xsd:element name="address3" type="xsd:string" minOccurs="0" />
+               <xsd:element name="addressType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="City" type="xsd:string" minOccurs="0" />
+               <xsd:element name="Country" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="State" type="xsd:string" minOccurs="0" />
+               <xsd:element name="zipCode" type="xsd:string" minOccurs="0" />
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="biographicalInfo">
+            <xsd:sequence>
+               <xsd:element name="dateofBirth" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="countryofBirth" type="xsd:string" minOccurs="0" />
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="employmentDetails">
+            <xsd:sequence>
+               <xsd:element name="originalStartDate" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="BRID" type="xsd:string" minOccurs="0" />
+               <xsd:element name="serviceDate" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="candidateID" type="xsd:string" minOccurs="0" />
+               <xsd:element name="userId" type="xsd:string" minOccurs="0" />
+               <xsd:element name="isContingentWorker" type="xsd:boolean" minOccurs="0" />
+               <xsd:element name="ABSA_ID" type="xsd:string" minOccurs="0" />
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="candidate">
+            <xsd:sequence>
+               <xsd:element name="basicInfo" type="basicInfo" minOccurs="1" maxOccurs="1" />
+               <xsd:element name="biographicalInfo" type="biographicalInfo" minOccurs="0" maxOccurs="1" />
+               <xsd:element name="nationalIdInfo" type="nationalIdInfo" minOccurs="0" maxOccurs="unbounded" />
+               <xsd:element name="personalInfo" type="personalInfo" minOccurs="0" />
+			   <xsd:element name="personalInfoJPN" type="personalInfoJPN" minOccurs="0" />
+			   <xsd:element name="personalInfoUSA" type="personalInfoUSA" minOccurs="0" />
+			   <xsd:element name="personalInfoIND" type="personalInfoIND" minOccurs="0" />
+			   <xsd:element name="personalInfoGBR" type="personalInfoGBR" minOccurs="0" />
+               <xsd:element name="emailInfo" type="emailInfo" minOccurs="0" maxOccurs="unbounded" />
+               <xsd:element name="phoneInfo" type="phoneInfo" minOccurs="0" maxOccurs="unbounded" />
+               <xsd:element name="addressInfo" type="addressInfo" minOccurs="0" maxOccurs="unbounded" />
+               <xsd:element name="emergencyContactInfo" type="emergencyContactInfo" minOccurs="0" maxOccurs="unbounded" />
+               <xsd:element name="employmentDetails" type="employmentDetails" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="jobInfo" type="jobInfo" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="personalDocumentsInfo" type="personalDocumentsInfo" minOccurs="0" maxOccurs="unbounded" />
+               <xsd:element name="compensationInfo" type="compensationInfo" minOccurs="0" />
+               <xsd:element name="payComponentRecurringInfo" type="payComponentRecurringInfo" minOccurs="0" />
+               <xsd:element name="paymentInformationDetail" type="paymentInformationDetail" minOccurs="0" />
+			   <xsd:element name="payComponentNonRecurringInfo" type="payComponentNonRecurringInfo" minOccurs="0" />
+               <xsd:element name="workOrder" type="workOrder" minOccurs="0" maxOccurs="unbounded" />
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="nationalIdInfo">
+            <xsd:sequence>
+               <xsd:element name="cardType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="country" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="isPrimary" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="nationalId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="emailInfo">
+            <xsd:sequence>
+               <xsd:element name="emailAddress" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="emailType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			   <xsd:element name="isPrimary" minOccurs="0" />
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="basicInfo">
+            <xsd:sequence>
+               <xsd:element name="hireDate" type="xsd:dateTime" minOccurs="1" maxOccurs="1" />
+               <xsd:element name="dateOfBirth" type="xsd:dateTime" minOccurs="0" />
+               <xsd:element name="countryOfBirth" type="xsd:string" minOccurs="0" />
+               <xsd:element name="firstName" minOccurs="0" />
+               <xsd:element name="lastName" minOccurs="0" />
+               <xsd:element name="Gender" minOccurs="0" />
+               <xsd:element name="Email" minOccurs="0" />
+               <xsd:element name="cellPhone" minOccurs="0" />
+               <xsd:element name="addressLine1" minOccurs="0" />
+               <xsd:element name="addressLine2" minOccurs="0" />
+               <xsd:element name="state" minOccurs="0" />
+               <xsd:element name="zipCode" minOccurs="0" />
+               <xsd:element name="country" minOccurs="0" />
+               <xsd:element name="city" minOccurs="0" />
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="paymentInformationDetail">
+            <xsd:sequence>
+               <xsd:element name="paymentInformation_effectiveStartDate" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="routingNumber" type="xsd:string" minOccurs="0" />
+               <xsd:element name="accountNumber" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="accountOwner" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="Currency" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="paymentMethod" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			   <xsd:element name="payType" type="xsd:string" minOccurs="0" />
+            </xsd:sequence>
+         </xsd:complexType>
+		 <xsd:complexType name="payComponentNonRecurringInfo">
+            <xsd:sequence>
+               <xsd:element name="payComponentCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			   <xsd:element name="payDate" type="xsd:dateTime" minOccurs="0" />
+               <xsd:element name="Currency" type="xsd:string" minOccurs="0" />
+			   <xsd:element name="value" type="xsd:double" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="performanceYear" type="xsd:string" minOccurs="0" />
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="workOrder">
+            <xsd:sequence>
+               <xsd:element name="workOrderId" type="xsd:string" minOccurs="0" />
+               <xsd:element name="workOrderName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="effectiveStatus" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="workOrderOwnerId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="vendor" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="statementOfWork" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="endDate" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="externalDailyRate" type="xsd:string" minOccurs="0" />
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="payComponentRecurringInfo">
+            <xsd:sequence>
+               <xsd:element name="currencyCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="payComponent" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="payCompValue" type="xsd:double" minOccurs="1" maxOccurs="1"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="phoneInfo">
+            <xsd:sequence>
+               <xsd:element name="phoneNumber" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+               <xsd:element name="phoneType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			   <xsd:element name="isPrimary" type="xsd:string" minOccurs="0" />
+            </xsd:sequence>
+         </xsd:complexType>
+      </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="candidatesInfo">
+      <wsdl:documentation />
+      <wsdl:part name="candidatesInfo" element="p1:candidatesInfo" />
+   </wsdl:message>
+   <wsdl:message name="hiringCDMResponse">
+      <wsdl:documentation />
+      <wsdl:part name="hiringCDMResponse" element="p1:hiringCDMResponse" />
+   </wsdl:message>
+   <wsdl:portType name="CDM_Hire_Synch">
+      <wsdl:documentation />
+      <wsdl:operation name="CDM_Hire_Synch">
+         <wsdl:documentation />
+         <wsp:Policy>
+            <wsp:PolicyReference URI="#OP_CDM_Hire_Synch" />
+         </wsp:Policy>
+         <wsdl:input message="p1:candidatesInfo" />
+         <wsdl:output message="p1:hiringCDMResponse" />
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="CDM_Hire_SynchBinding" type="p1:CDM_Hire_Synch">
+      <soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+      <wsdl:operation name="CDM_Hire_Synch">
+         <soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://sap.com/xi/WebService/soap1.1" />
+         <wsdl:input>
+            <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal" />
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+</wsdl:definitions>
