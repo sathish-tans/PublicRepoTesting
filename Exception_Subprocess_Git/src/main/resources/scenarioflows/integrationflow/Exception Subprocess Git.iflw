@@ -105,52 +105,6 @@
                 <value>Not Required</value>
             </ifl:property>
         </bpmn2:extensionElements>
-        <bpmn2:subProcess id="SubProcess_6" name="Exception Subprocess 1">
-            <bpmn2:extensionElements>
-                <ifl:property>
-                    <key>componentVersion</key>
-                    <value>1.1</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>activityType</key>
-                    <value>ErrorEventSubProcessTemplate</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>cmdVariantUri</key>
-                    <value>ctype::FlowstepVariant/cname::ErrorEventSubProcessTemplate/version::1.1.0</value>
-                </ifl:property>
-            </bpmn2:extensionElements>
-            <bpmn2:endEvent id="EndEvent_8" name="End 1">
-                <bpmn2:extensionElements>
-                    <ifl:property>
-                        <key>componentVersion</key>
-                        <value>1.1</value>
-                    </ifl:property>
-                    <ifl:property>
-                        <key>cmdVariantUri</key>
-                        <value>ctype::FlowstepVariant/cname::MessageEndEvent/version::1.1.0</value>
-                    </ifl:property>
-                </bpmn2:extensionElements>
-                <bpmn2:incoming>SequenceFlow_9</bpmn2:incoming>
-                <bpmn2:messageEventDefinition/>
-            </bpmn2:endEvent>
-            <bpmn2:startEvent id="StartEvent_7" name="Error Start 1">
-                <bpmn2:outgoing>SequenceFlow_9</bpmn2:outgoing>
-                <bpmn2:errorEventDefinition>
-                    <bpmn2:extensionElements>
-                        <ifl:property>
-                            <key>cmdVariantUri</key>
-                            <value>ctype::FlowstepVariant/cname::ErrorStartEvent</value>
-                        </ifl:property>
-                        <ifl:property>
-                            <key>activityType</key>
-                            <value>StartErrorEvent</value>
-                        </ifl:property>
-                    </bpmn2:extensionElements>
-                </bpmn2:errorEventDefinition>
-            </bpmn2:startEvent>
-            <bpmn2:sequenceFlow id="SequenceFlow_9" sourceRef="StartEvent_7" targetRef="EndEvent_8"/>
-        </bpmn2:subProcess>
         <bpmn2:callActivity id="CallActivity_4" name="Filter 1">
             <bpmn2:extensionElements>
                 <ifl:property>
@@ -228,15 +182,6 @@
             <bpmndi:BPMNShape bpmnElement="Participant_Process_1" id="BPMNShape_Participant_Process_1">
                 <dc:Bounds height="348.0" width="635.0" x="250.0" y="60.0"/>
             </bpmndi:BPMNShape>
-            <bpmndi:BPMNShape bpmnElement="SubProcess_6" id="BPMNShape_SubProcess_6">
-                <dc:Bounds height="140.0" width="400.0" x="369.0" y="248.0"/>
-            </bpmndi:BPMNShape>
-            <bpmndi:BPMNShape bpmnElement="StartEvent_7" id="BPMNShape_StartEvent_7">
-                <dc:Bounds height="32.0" width="32.0" x="402.0" y="294.0"/>
-            </bpmndi:BPMNShape>
-            <bpmndi:BPMNShape bpmnElement="EndEvent_8" id="BPMNShape_EndEvent_8">
-                <dc:Bounds height="32.0" width="32.0" x="689.0" y="294.0"/>
-            </bpmndi:BPMNShape>
             <bpmndi:BPMNEdge bpmnElement="SequenceFlow_5" id="BPMNEdge_SequenceFlow_5" sourceElement="BPMNShape_CallActivity_4" targetElement="BPMNShape_EndEvent_2">
                 <di:waypoint x="501.0" xsi:type="dc:Point" y="144.0"/>
                 <di:waypoint x="660.0" xsi:type="dc:Point" y="144.0"/>
@@ -248,10 +193,6 @@
                 <di:waypoint x="420.75" xsi:type="dc:Point" y="158.0"/>
                 <di:waypoint x="420.75" xsi:type="dc:Point" y="144.0"/>
                 <di:waypoint x="501.0" xsi:type="dc:Point" y="144.0"/>
-            </bpmndi:BPMNEdge>
-            <bpmndi:BPMNEdge bpmnElement="SequenceFlow_9" id="BPMNEdge_SequenceFlow_9" sourceElement="BPMNShape_StartEvent_7" targetElement="BPMNShape_EndEvent_8">
-                <di:waypoint x="418.0" xsi:type="dc:Point" y="310.0"/>
-                <di:waypoint x="705.0" xsi:type="dc:Point" y="310.0"/>
             </bpmndi:BPMNEdge>
         </bpmndi:BPMNPlane>
     </bpmndi:BPMNDiagram>
