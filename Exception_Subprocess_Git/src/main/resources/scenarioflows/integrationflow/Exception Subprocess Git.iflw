@@ -229,13 +229,13 @@
                 <dc:Bounds height="348.0" width="682.0" x="250.0" y="60.0"/>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape bpmnElement="SubProcess_6" id="BPMNShape_SubProcess_6">
-                <dc:Bounds height="140.0" width="400.0" x="270.0" y="225.0"/>
+                <dc:Bounds height="140.0" width="400.0" x="271.0" y="235.0"/>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape bpmnElement="StartEvent_7" id="BPMNShape_StartEvent_7">
-                <dc:Bounds height="32.0" width="32.0" x="303.0" y="271.0"/>
+                <dc:Bounds height="32.0" width="32.0" x="304.0" y="281.0"/>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape bpmnElement="EndEvent_8" id="BPMNShape_EndEvent_8">
-                <dc:Bounds height="32.0" width="32.0" x="590.0" y="271.0"/>
+                <dc:Bounds height="32.0" width="32.0" x="591.0" y="281.0"/>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNEdge bpmnElement="SequenceFlow_5" id="BPMNEdge_SequenceFlow_5" sourceElement="BPMNShape_CallActivity_4" targetElement="BPMNShape_EndEvent_2">
                 <di:waypoint x="548.0" xsi:type="dc:Point" y="144.0"/>
@@ -250,8 +250,8 @@
                 <di:waypoint x="548.0" xsi:type="dc:Point" y="144.0"/>
             </bpmndi:BPMNEdge>
             <bpmndi:BPMNEdge bpmnElement="SequenceFlow_9" id="BPMNEdge_SequenceFlow_9" sourceElement="BPMNShape_StartEvent_7" targetElement="BPMNShape_EndEvent_8">
-                <di:waypoint x="319.0" xsi:type="dc:Point" y="287.0"/>
-                <di:waypoint x="606.0" xsi:type="dc:Point" y="287.0"/>
+                <di:waypoint x="320.0" xsi:type="dc:Point" y="297.0"/>
+                <di:waypoint x="607.0" xsi:type="dc:Point" y="297.0"/>
             </bpmndi:BPMNEdge>
         </bpmndi:BPMNPlane>
     </bpmndi:BPMNDiagram>
