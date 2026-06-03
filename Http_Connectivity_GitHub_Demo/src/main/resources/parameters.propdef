@@ -40,4 +40,12 @@
     <additionalMetadata>
       <isCombobox>true</isCombobox>
     </additionalMetadata>
+  </parameter><parameter>
+    <key/>
+    <name>H44</name>
+    <type>xsd:string</type>
+    <isRequired>false</isRequired>
+    <constraint/>
+    <description/>
+    <additionalMetadata/>
   </parameter><param_references><reference attribute_category="Sender" attribute_id="/attrId::urlPath" attribute_uilabel="" param_key="addr"/><reference attribute_category="Sender" attribute_id="/attrId::senderAuthType" attribute_uilabel="" param_key="auth"/></param_references></parameters>
