@@ -173,7 +173,7 @@
                 </ifl:property>
                 <ifl:property>
                     <key>httpRequestTimeout</key>
-                    <value>60000</value>
+                    <value>{{time}}</value>
                 </ifl:property>
                 <ifl:property>
                     <key>ComponentSWCVId</key>
