@@ -165,7 +165,7 @@
                 </ifl:property>
                 <ifl:property>
                     <key>pooledConnectionIdleTimeout</key>
-                    <value>300000</value>
+                    <value>{{time}}</value>
                 </ifl:property>
                 <ifl:property>
                     <key>httpAddressQuery</key>
@@ -237,7 +237,7 @@
                 </ifl:property>
                 <ifl:property>
                     <key>authenticationMethod</key>
-                    <value>Client Certificate</value>
+                    <value>{{rec_auth}}</value>
                 </ifl:property>
                 <ifl:property>
                     <key>locationID</key>

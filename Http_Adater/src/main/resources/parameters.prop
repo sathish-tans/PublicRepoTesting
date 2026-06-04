@@ -1,9 +1,10 @@
-#Thu Jun 04 13:20:57 UTC 2026
+#Thu Jun 04 14:32:32 UTC 2026
 H1=1
 add_rr=test
 addr=/http/dd
 body_size=40
 proxy=default
 query=add
+rec_auth=Client Certificate
 role=ESBMessaging.send
 time=60000
