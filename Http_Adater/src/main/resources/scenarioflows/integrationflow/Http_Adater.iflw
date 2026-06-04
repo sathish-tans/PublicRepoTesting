@@ -209,7 +209,7 @@
                 </ifl:property>
                 <ifl:property>
                     <key>proxyType</key>
-                    <value>default</value>
+                    <value>{{proxy}}</value>
                 </ifl:property>
                 <ifl:property>
                     <key>componentVersion</key>
