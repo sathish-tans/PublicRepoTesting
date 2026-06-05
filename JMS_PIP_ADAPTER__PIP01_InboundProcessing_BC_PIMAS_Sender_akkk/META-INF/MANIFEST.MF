@@ -4,7 +4,7 @@ Bundle-Name: JMS_PIP_ADAPTER__PIP01_InboundProcessing_BC_PIMAS_Sender_ak
  kk
 Bundle-SymbolicName: JMS_PIP_ADAPTER__PIP01_InboundProcessing_BC_PIMAS_S
  ender_akkk; singleton:=true
-Bundle-Version: 1.0.1
+Bundle-Version: 1.0.2
 SAP-BundleType: IntegrationFlow
 SAP-NodeType: IFLMAP
 SAP-RuntimeProfile: iflmap
