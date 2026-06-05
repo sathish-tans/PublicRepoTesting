@@ -1,0 +1,12 @@
+#Tue May 26 10:16:38 UTC 2026
+MessageFlow_1002_AccessType=Non-Exclusive
+MessageFlow_1002_EncryptMessage=1
+MessageFlow_1002_QueueName_outbound=PIPX01
+MessageFlow_1002_RetentionThresholdAlerting=2
+MessageFlow_1002_TransferExchangeProperties=0
+MessageFlow_1002_UseMessageCompression=1
+MessageFlow_1_address=/JMS_PIP_ADAPTER_
+MessageFlow_1_userRole=ESBMessaging.send
+MessageFlow_1_xmlCharacterHandling=throwException
+SAP_Sender=BC_PIMAS_Sender_akkk
+SAP_SenderInterface=SI_EmployeeData_Out
