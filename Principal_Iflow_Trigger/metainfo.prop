@@ -1,4 +1,4 @@
 #Store metainfo properties
-#Thu Jun 04 16:20:46 IST 2026
+#Fri Jun 05 02:27:09 UTC 2026
 SAP-MarkedSAP2SAP=SAP_TO_SAP_INTEGRATION
-description=
+description=To execute SAP SFEC to SAP GRC AC Integration for Employee Authorization_PP Principal Propagation Iflow.

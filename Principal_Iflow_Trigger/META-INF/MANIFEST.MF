@@ -32,7 +32,7 @@ Import-Package: com.sap.esb.application.services.cxf.interceptor,com.sap
 Origin-Bundle-Name: Principal Iflow Trigger
 SAP-RuntimeProfile: iflmap
 Bundle-Name: Principal Iflow Trigger
-Bundle-Version: 1.0.1
+Bundle-Version: 1.0.0
 SAP-NodeType: IFLMAP
 Origin-ModifiedDate: 1715146892930
 SAP-BundleType: IntegrationFlow
