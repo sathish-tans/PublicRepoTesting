@@ -1,5 +1,5 @@
 #Store metainfo properties
-#Fri Jun 05 12:59:32 UTC 2026
+#Fri Jun 05 18:32:37 IST 2026
 SAP-MigrationApproach=PIPELINE
 SAP-PIPOMigrated=true
-description=System\: N75, System version\: 7.50, Pattern\: Point-to-Point Asynchronous, Migration Approach\: Pipeline, Type\: Integrated Configuration, PO Artifact Name\: |BC_PIMAS_Sender|SI_EmployeeData_Out|http\://pielevation.com||WO_JMS_R
+description=

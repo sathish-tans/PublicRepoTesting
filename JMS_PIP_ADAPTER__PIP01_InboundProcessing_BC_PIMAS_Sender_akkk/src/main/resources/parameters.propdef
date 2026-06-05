@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<parameters>
-  <parameter>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><parameters><parameter>
     <key/>
     <name>SAP_Sender</name>
     <type>xsd:string</type>
@@ -8,8 +6,7 @@
     <constraint/>
     <description/>
     <additionalMetadata/>
-  </parameter>
-  <parameter>
+  </parameter><parameter>
     <key/>
     <name>MessageFlow_1002_QueueName_outbound</name>
     <type>xsd:string</type>
@@ -17,8 +14,7 @@
     <constraint/>
     <description/>
     <additionalMetadata/>
-  </parameter>
-  <parameter>
+  </parameter><parameter>
     <key/>
     <name>MessageFlow_1002_TransferExchangeProperties</name>
     <type>xsd:boolean</type>
@@ -26,8 +22,7 @@
     <constraint/>
     <description/>
     <additionalMetadata/>
-  </parameter>
-  <parameter>
+  </parameter><parameter>
     <key/>
     <name>MessageFlow_1_address</name>
     <type>xsd:string</type>
@@ -35,8 +30,7 @@
     <constraint/>
     <description/>
     <additionalMetadata/>
-  </parameter>
-  <parameter>
+  </parameter><parameter>
     <key/>
     <name>MessageFlow_1_userRole</name>
     <type>xsd:string</type>
@@ -44,8 +38,7 @@
     <constraint/>
     <description/>
     <additionalMetadata/>
-  </parameter>
-  <parameter>
+  </parameter><parameter>
     <key/>
     <name>MessageFlow_1002_UseMessageCompression</name>
     <type>xsd:boolean</type>
@@ -53,8 +46,7 @@
     <constraint/>
     <description/>
     <additionalMetadata/>
-  </parameter>
-  <parameter>
+  </parameter><parameter>
     <key/>
     <name>MessageFlow_1002_EncryptMessage</name>
     <type>xsd:boolean</type>
@@ -62,8 +54,7 @@
     <constraint/>
     <description/>
     <additionalMetadata/>
-  </parameter>
-  <parameter>
+  </parameter><parameter>
     <key/>
     <name>MessageFlow_1002_RetentionThresholdAlerting</name>
     <type>xsd:integer</type>
@@ -71,8 +62,7 @@
     <constraint/>
     <description/>
     <additionalMetadata/>
-  </parameter>
-  <parameter>
+  </parameter><parameter>
     <key/>
     <name>MessageFlow_1_xmlCharacterHandling</name>
     <type>xsd:string</type>
@@ -80,8 +70,7 @@
     <constraint/>
     <description/>
     <additionalMetadata/>
-  </parameter>
-  <parameter>
+  </parameter><parameter>
     <key/>
     <name>MessageFlow_1002_AccessType</name>
     <type>xsd:string</type>
@@ -89,8 +78,7 @@
     <constraint/>
     <description/>
     <additionalMetadata/>
-  </parameter>
-  <parameter>
+  </parameter><parameter>
     <key/>
     <name>SAP_SenderInterface</name>
     <type>xsd:string</type>
@@ -98,5 +86,12 @@
     <constraint/>
     <description/>
     <additionalMetadata/>
-  </parameter>
-</parameters>
+  </parameter><parameter>
+    <key/>
+    <name>BS</name>
+    <type>xsd:integer</type>
+    <isRequired>false</isRequired>
+    <constraint/>
+    <description/>
+    <additionalMetadata/>
+  </parameter><param_references><reference attribute_category="JMSReceiver_1" attribute_id="ctype::AdapterVariant/cname::JMS/tp::Not Applicable/mp::Not Applicable/direction::Receiver/version::1.6.3/attrId::QueueName_outbound" attribute_uilabel="Queue Name" param_key="MessageFlow_1002_QueueName_outbound"/><reference attribute_category="JMSReceiver_1" attribute_id="ctype::AdapterVariant/cname::JMS/tp::Not Applicable/mp::Not Applicable/direction::Receiver/version::1.6.3/attrId::EncryptMessage" attribute_uilabel="Encrypt Stored Message" param_key="MessageFlow_1002_EncryptMessage"/><reference attribute_category="JMSReceiver_1" attribute_id="ctype::AdapterVariant/cname::JMS/tp::Not Applicable/mp::Not Applicable/direction::Receiver/version::1.6.3/attrId::RetentionThresholdAlerting" attribute_uilabel="Retention Threshold for Alerting (in d)" param_key="MessageFlow_1002_RetentionThresholdAlerting"/><reference attribute_category="JMSReceiver_1" attribute_id="ctype::AdapterVariant/cname::JMS/tp::Not Applicable/mp::Not Applicable/direction::Receiver/version::1.6.3/attrId::UseMessageCompression" attribute_uilabel="Compress Stored Message" param_key="MessageFlow_1002_UseMessageCompression"/><reference attribute_category="JMSReceiver_1" attribute_id="ctype::AdapterVariant/cname::JMS/tp::Not Applicable/mp::Not Applicable/direction::Receiver/version::1.6.3/attrId::TransferExchangeProperties" attribute_uilabel="Transfer Exchange Properties" param_key="MessageFlow_1002_TransferExchangeProperties"/><reference attribute_category="JMSReceiver_1" attribute_id="ctype::AdapterVariant/cname::JMS/tp::Not Applicable/mp::Not Applicable/direction::Receiver/version::1.6.3/attrId::AccessType" attribute_uilabel="Access Type" param_key="MessageFlow_1002_AccessType"/><reference attribute_category="BC_PIMAS_Sender_akkk.Receiver.System" attribute_id="ctype::AdapterVariant/cname::IDOC/tp::HTTP/mp::IDoc SOAP/direction::Receiver/version::1.4.1/attrId::address" attribute_uilabel="Address" param_key="MessageFlow_1_address"/><reference attribute_category="BC_PIMAS_Sender_akkk" attribute_id="ctype::AdapterVariant/cname::IDOC/tp::HTTP/mp::IDoc SOAP/direction::Receiver/version::1.4.1/attrId::maximumBodySize" attribute_uilabel="" param_key="BS"/><reference attribute_category="BC_PIMAS_Sender_akkk" attribute_id="ctype::AdapterVariant/cname::IDOC/tp::HTTP/mp::IDoc SOAP/direction::Receiver/version::1.4.1/attrId::userRole" attribute_uilabel="" param_key="MessageFlow_1_userRole"/><reference attribute_category="BC_PIMAS_Sender_akkk" attribute_id="ctype::AdapterVariant/cname::IDOC/tp::HTTP/mp::IDoc SOAP/direction::Receiver/version::1.4.1/attrId::xmlCharacterHandling" attribute_uilabel="" param_key="MessageFlow_1_xmlCharacterHandling"/></param_references></parameters>

@@ -1,4 +1,5 @@
-#Tue May 26 10:16:38 UTC 2026
+#Fri Jun 05 18:32:22 IST 2026
+BS=40
 MessageFlow_1002_AccessType=Non-Exclusive
 MessageFlow_1002_EncryptMessage=1
 MessageFlow_1002_QueueName_outbound=PIPX01
