@@ -1,1 +1,41 @@
-#Sat Jun 06 08:21:05 UTC 2026
+#Tue Jun 02 12:12:57 UTC 2026
+Address1=http\://jenkslave55.cpi.c.eu-de-1.cloud.sap\:8924/V4/(S(random))/TripPinServiceRW
+Addressrt=https\://services.odata.org/TripPinRESTierService/(S(l33xbfdkcb3ipr4513ze33ze))/
+Allowheader=
+Auth=None
+Chunkwer=false
+Connection=true
+Creds=
+Csrfprotect=true
+Customquery=
+Details=true
+Expression=${header.exp}
+Headers=
+Headersr=
+Headtap=
+Httpsession=None
+Locater=
+Location=
+Operation=DynamicOperation
+Proxy=sapcc
+Proxyt=default
+Queryparam=
+Reference=static
+Req=
+Reqheaders=
+Resource=Airlines
+Responseheaders=
+Resuhead=
+Reuse=true
+Timeouts=1
+Timeoutsd=1
+Typed=constant
+Types=expression
+chunk=false
+csrf=true
+namecred=
+operation=create
+resource=${exchangeProperty.path}
+return=false
+sched=<row><cell>dateType</cell><cell></cell></row><row><cell>timeType</cell><cell></cell></row><row><cell>dayValue</cell><cell></cell></row><row><cell>monthValue</cell><cell></cell></row><row><cell>yearValue</cell><cell></cell></row><row><cell>onWeekly</cell><cell></cell></row><row><cell>onMonthly</cell><cell></cell></row><row><cell>OnEveryMinute</cell><cell></cell></row><row><cell>fromInterval</cell><cell></cell></row><row><cell>toInterval</cell><cell></cell></row><row><cell>timeZone</cell><cell>( UTC 0\:00 ) Greenwich Mean Time(Etc/GMT)</cell></row><row><cell>secondValue</cell><cell>0</cell></row><row><cell>minutesValue</cell><cell></cell></row><row><cell>hourValue</cell><cell></cell></row><row><cell>triggerType</cell><cell>simple</cell></row><row><cell>noOfSchedules</cell><cell>1</cell></row><row><cell>schedule1</cell><cell>fireNow\=true</cell></row>
+wes=true
