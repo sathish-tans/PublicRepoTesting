@@ -1025,7 +1025,7 @@
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_103_1780907175618" xsi:type="bpmn2:tFormalExpression">/PerPerson/PerPerson</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_103_1780910160872" xsi:type="bpmn2:tFormalExpression">/PerPerson/PerPerson</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
         <bpmn2:sequenceFlow id="SequenceFlow_24" sourceRef="StartEvent_22" targetRef="ServiceTask_63"/>
         <bpmn2:sequenceFlow id="SequenceFlow_86" sourceRef="CallActivity_85" targetRef="CallActivity_88"/>
@@ -1055,7 +1055,7 @@
             <bpmn2:extensionElements>
                 <ifl:property>
                     <key>loopId</key>
-                    <value>StandardLoopCharacteristics_1780907175618</value>
+                    <value>StandardLoopCharacteristics_1780910160872</value>
                 </ifl:property>
                 <ifl:property>
                     <key>processId</key>
@@ -1084,8 +1084,8 @@
             </bpmn2:extensionElements>
             <bpmn2:incoming>SequenceFlow_101</bpmn2:incoming>
             <bpmn2:outgoing>SequenceFlow_98</bpmn2:outgoing>
-            <bpmn2:standardLoopCharacteristics id="StandardLoopCharacteristics_1780907175618" loopMaximum="999">
-                <bpmn2:loopCondition id="FormalExpression_1780907175618" xsi:type="bpmn2:tFormalExpression">${property.EC.SuccessFactors_GetEmployment_R.hasMoreRecords} contains 'true'</bpmn2:loopCondition>
+            <bpmn2:standardLoopCharacteristics id="StandardLoopCharacteristics_1780910160872" loopMaximum="999">
+                <bpmn2:loopCondition id="FormalExpression_1780910160872" xsi:type="bpmn2:tFormalExpression">${property.EC.SuccessFactors_GetEmployment_R.hasMoreRecords} contains 'true'</bpmn2:loopCondition>
             </bpmn2:standardLoopCharacteristics>
         </bpmn2:callActivity>
         <bpmn2:callActivity id="CallActivity_100" name="Set ExecutionTimestamp">
@@ -1115,7 +1115,7 @@
                     <value>script3.groovy</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:incoming>SequenceFlow_91</bpmn2:incoming>
+            <bpmn2:incoming>SequenceFlow_112</bpmn2:incoming>
             <bpmn2:outgoing>SequenceFlow_101</bpmn2:outgoing>
         </bpmn2:callActivity>
         <bpmn2:serviceTask id="ServiceTask_90" name="Write File Header">
@@ -1134,7 +1134,7 @@
                 </ifl:property>
             </bpmn2:extensionElements>
             <bpmn2:incoming>SequenceFlow_82</bpmn2:incoming>
-            <bpmn2:outgoing>SequenceFlow_91</bpmn2:outgoing>
+            <bpmn2:outgoing>SequenceFlow_113</bpmn2:outgoing>
         </bpmn2:serviceTask>
         <bpmn2:endEvent id="EndEvent_75" name="End Main Process">
             <bpmn2:extensionElements>
@@ -1148,6 +1148,7 @@
                 </ifl:property>
             </bpmn2:extensionElements>
             <bpmn2:incoming>SequenceFlow_99</bpmn2:incoming>
+            <bpmn2:incoming>SequenceFlow_114</bpmn2:incoming>
             <bpmn2:messageEventDefinition/>
         </bpmn2:endEvent>
         <bpmn2:callActivity id="CallActivity_97" name="Store Last Execution Time Stamp">
@@ -1287,9 +1288,32 @@ ${in.body}</value>
             <bpmn2:incoming>SequenceFlow_61</bpmn2:incoming>
             <bpmn2:outgoing>SequenceFlow_70</bpmn2:outgoing>
         </bpmn2:callActivity>
+        <bpmn2:parallelGateway id="ParallelGateway_111" name="Parallel Multicast 1">
+            <bpmn2:extensionElements>
+                <ifl:property>
+                    <key>componentVersion</key>
+                    <value>1.1</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>activityType</key>
+                    <value>Multicast</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>cmdVariantUri</key>
+                    <value>ctype::FlowstepVariant/cname::Multicast/version::1.1.1</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>subActivityType</key>
+                    <value>parallel</value>
+                </ifl:property>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>SequenceFlow_113</bpmn2:incoming>
+            <bpmn2:outgoing>SequenceFlow_112</bpmn2:outgoing>
+            <bpmn2:outgoing>SequenceFlow_114</bpmn2:outgoing>
+        </bpmn2:parallelGateway>
         <bpmn2:startEvent id="StartEvent_40" name="Start Timer">
             <bpmn2:outgoing>SequenceFlow_41</bpmn2:outgoing>
-            <bpmn2:timerEventDefinition id="TimerEventDefinition_120115">
+            <bpmn2:timerEventDefinition id="TimerEventDefinition_144775">
                 <bpmn2:extensionElements>
                     <ifl:property>
                         <key>scheduleKey</key>
@@ -1312,11 +1336,13 @@ ${in.body}</value>
         </bpmn2:startEvent>
         <bpmn2:sequenceFlow id="SequenceFlow_98" sourceRef="CallActivity_18" targetRef="CallActivity_97"/>
         <bpmn2:sequenceFlow id="SequenceFlow_101" sourceRef="CallActivity_100" targetRef="CallActivity_18"/>
-        <bpmn2:sequenceFlow id="SequenceFlow_91" sourceRef="ServiceTask_90" targetRef="CallActivity_100"/>
+        <bpmn2:sequenceFlow id="SequenceFlow_113" sourceRef="ServiceTask_90" targetRef="ParallelGateway_111"/>
         <bpmn2:sequenceFlow id="SequenceFlow_99" sourceRef="CallActivity_97" targetRef="EndEvent_75"/>
         <bpmn2:sequenceFlow id="SequenceFlow_82" sourceRef="CallActivity_51" targetRef="ServiceTask_90"/>
         <bpmn2:sequenceFlow id="SequenceFlow_61" sourceRef="CallActivity_60" targetRef="CallActivity_7"/>
         <bpmn2:sequenceFlow id="SequenceFlow_70" sourceRef="CallActivity_7" targetRef="CallActivity_51"/>
+        <bpmn2:sequenceFlow id="SequenceFlow_112" name="Branch 1" sourceRef="ParallelGateway_111" targetRef="CallActivity_100"/>
+        <bpmn2:sequenceFlow id="SequenceFlow_114" name="Branch 2" sourceRef="ParallelGateway_111" targetRef="EndEvent_75"/>
         <bpmn2:sequenceFlow id="SequenceFlow_41" sourceRef="StartEvent_40" targetRef="CallActivity_60"/>
     </bpmn2:process>
     <bpmndi:BPMNDiagram id="BPMNDiagram_1" name="Default Collaboration Diagram">
@@ -1382,7 +1408,7 @@ ${in.body}</value>
                 <dc:Bounds height="140.0" width="100.0" x="574.0" y="546.0"/>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape bpmnElement="Participant_Process_1" id="BPMNShape_Participant_Process_1">
-                <dc:Bounds height="233.0" width="1148.0" x="-729.0" y="50.0"/>
+                <dc:Bounds height="245.0" width="1148.0" x="-729.0" y="50.0"/>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape bpmnElement="Participant_49" id="BPMNShape_Participant_49">
                 <dc:Bounds height="140.0" width="100.0" x="-231.0" y="336.0"/>
@@ -1393,10 +1419,9 @@ ${in.body}</value>
             <bpmndi:BPMNShape bpmnElement="EndEvent_105" id="BPMNShape_EndEvent_105">
                 <dc:Bounds height="32.0" width="32.0" x="738.0" y="409.0"/>
             </bpmndi:BPMNShape>
-            <bpmndi:BPMNEdge bpmnElement="SequenceFlow_91" id="BPMNEdge_SequenceFlow_91" sourceElement="BPMNShape_ServiceTask_90" targetElement="BPMNShape_CallActivity_100">
-                <di:waypoint x="-181.0" xsi:type="dc:Point" y="144.5"/>
-                <di:waypoint x="-46.0" xsi:type="dc:Point" y="144.5"/>
-            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNShape bpmnElement="ParallelGateway_111" id="BPMNShape_ParallelGateway_111">
+                <dc:Bounds height="40.0" width="40.0" x="-46.0" y="207.0"/>
+            </bpmndi:BPMNShape>
             <bpmndi:BPMNEdge bpmnElement="SequenceFlow_70" id="BPMNEdge_SequenceFlow_70" sourceElement="BPMNShape_CallActivity_7" targetElement="BPMNShape_CallActivity_51">
                 <di:waypoint x="-445.0" xsi:type="dc:Point" y="148.0"/>
                 <di:waypoint x="-306.0" xsi:type="dc:Point" y="148.0"/>
@@ -1472,6 +1497,21 @@ ${in.body}</value>
             <bpmndi:BPMNEdge bpmnElement="MessageFlow_108" id="BPMNEdge_MessageFlow_108" sourceElement="BPMNShape_ServiceTask_77" targetElement="BPMNShape_Participant_80">
                 <di:waypoint x="1258.5" xsi:type="dc:Point" y="322.0"/>
                 <di:waypoint x="1258.5" xsi:type="dc:Point" y="580.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="SequenceFlow_112" id="BPMNEdge_SequenceFlow_112" sourceElement="BPMNShape_ParallelGateway_111" targetElement="BPMNShape_CallActivity_100">
+                <di:waypoint x="-26.0" xsi:type="dc:Point" y="227.0"/>
+                <di:waypoint x="-26.0" xsi:type="dc:Point" y="148.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="SequenceFlow_113" id="BPMNEdge_SequenceFlow_113" sourceElement="BPMNShape_ServiceTask_90" targetElement="BPMNShape_ParallelGateway_111">
+                <di:waypoint x="-181.0" xsi:type="dc:Point" y="148.0"/>
+                <di:waypoint x="-113.5" xsi:type="dc:Point" y="148.0"/>
+                <di:waypoint x="-113.5" xsi:type="dc:Point" y="225.0"/>
+                <di:waypoint x="-34.0" xsi:type="dc:Point" y="225.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="SequenceFlow_114" id="BPMNEdge_SequenceFlow_114" sourceElement="BPMNShape_ParallelGateway_111" targetElement="BPMNShape_EndEvent_75">
+                <di:waypoint x="-26.0" xsi:type="dc:Point" y="227.0"/>
+                <di:waypoint x="319.0" xsi:type="dc:Point" y="227.0"/>
+                <di:waypoint x="319.0" xsi:type="dc:Point" y="156.5"/>
             </bpmndi:BPMNEdge>
         </bpmndi:BPMNPlane>
     </bpmndi:BPMNDiagram>
