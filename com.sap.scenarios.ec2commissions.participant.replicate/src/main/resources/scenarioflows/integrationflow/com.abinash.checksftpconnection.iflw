@@ -58,6 +58,14 @@
                 </ifl:property>
             </bpmn2:extensionElements>
         </bpmn2:participant>
+        <bpmn2:participant id="Participant_109" ifl:type="EndpointRecevier" name="Receiver1">
+            <bpmn2:extensionElements>
+                <ifl:property>
+                    <key>ifl:type</key>
+                    <value>EndpointRecevier</value>
+                </ifl:property>
+            </bpmn2:extensionElements>
+        </bpmn2:participant>
         <bpmn2:participant id="Participant_Process_21" ifl:type="IntegrationProcess" name="Process PerPerson records" processRef="Process_21">
             <bpmn2:extensionElements/>
         </bpmn2:participant>
@@ -156,7 +164,7 @@
                 </ifl:property>
                 <ifl:property>
                     <key>urlSuffixSfOData</key>
-                    <value>/odata/v2</value>
+                    <value>{{suffix}}</value>
                 </ifl:property>
                 <ifl:property>
                     <key>proxyHost</key>
@@ -556,6 +564,202 @@
                 </ifl:property>
             </bpmn2:extensionElements>
         </bpmn2:messageFlow>
+        <bpmn2:messageFlow id="MessageFlow_110" name="HTTP" sourceRef="EndEvent_75" targetRef="Participant_109">
+            <bpmn2:extensionElements>
+                <ifl:property>
+                    <key>apiName</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>Description</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>methodSourceExpression</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>apiArtifactType</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>providerAuth</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>retryOnExceptionsTable</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>ComponentNS</key>
+                    <value>sap</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>privateKeyAlias</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>httpMethod</key>
+                    <value>POST</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>apiprovider_location_id</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>allowedResponseHeaders</key>
+                    <value>*</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>Name</key>
+                    <value>HTTP</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>internetProxyType</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>TransportProtocolVersion</key>
+                    <value>1.20.1</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>retryOnException</key>
+                    <value>false</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>proxyPort</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>ComponentSWCVName</key>
+                    <value>external</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>streaming</key>
+                    <value>false</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>enableMPLAttachments</key>
+                    <value>true</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>pooledConnectionIdleTimeout</key>
+                    <value>300000</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>httpAddressQuery</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>httpRequestTimeout</key>
+                    <value>60000</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>ComponentSWCVId</key>
+                    <value>1.20.1</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>providerName</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>allowedRequestHeaders</key>
+                    <value>traceparent</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>MessageProtocol</key>
+                    <value>None</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>direction</key>
+                    <value>Receiver</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>ComponentType</key>
+                    <value>HTTP</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>httpShouldSendBody</key>
+                    <value>false</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>throwExceptionOnFailure</key>
+                    <value>true</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>proxyType</key>
+                    <value>default</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>componentVersion</key>
+                    <value>1.20</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>retryIteration</key>
+                    <value>1</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>proxyHost</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>providerUrl</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>retryOnConnectionFailure</key>
+                    <value>false</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>system</key>
+                    <value>Receiver1</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>authenticationMethod</key>
+                    <value>Client Certificate</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>locationID</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>retryInterval</key>
+                    <value>5</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>TransportProtocol</key>
+                    <value>HTTP</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>cmdVariantUri</key>
+                    <value>ctype::AdapterVariant/cname::sap:HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.20.1</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>httpErrorResponseCodes</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>credentialName</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>apiDisplayName</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>MessageProtocolVersion</key>
+                    <value>1.20.1</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>providerRelativeUrl</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>httpAddressWithoutQuery</key>
+                    <value>https://dje.com</value>
+                </ifl:property>
+            </bpmn2:extensionElements>
+        </bpmn2:messageFlow>
     </bpmn2:collaboration>
     <bpmn2:process id="Process_21" name="Process PerPerson records">
         <bpmn2:extensionElements>
@@ -598,6 +802,24 @@
             <bpmn2:incoming>SequenceFlow_24</bpmn2:incoming>
             <bpmn2:outgoing>SequenceFlow_64</bpmn2:outgoing>
         </bpmn2:serviceTask>
+        <bpmn2:serviceTask id="ServiceTask_77" name="Write File Item">
+            <bpmn2:extensionElements>
+                <ifl:property>
+                    <key>componentVersion</key>
+                    <value>1.0</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>activityType</key>
+                    <value>Send</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>cmdVariantUri</key>
+                    <value>ctype::FlowstepVariant/cname::Send/version::1.0.4</value>
+                </ifl:property>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>SequenceFlow_89</bpmn2:incoming>
+            <bpmn2:outgoing>SequenceFlow_78</bpmn2:outgoing>
+        </bpmn2:serviceTask>
         <bpmn2:endEvent id="EndEvent_105" name="End Process">
             <bpmn2:extensionElements>
                 <ifl:property>
@@ -624,24 +846,6 @@
             </bpmn2:extensionElements>
             <bpmn2:incoming>SequenceFlow_78</bpmn2:incoming>
         </bpmn2:endEvent>
-        <bpmn2:serviceTask id="ServiceTask_77" name="Write File Item">
-            <bpmn2:extensionElements>
-                <ifl:property>
-                    <key>componentVersion</key>
-                    <value>1.0</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>activityType</key>
-                    <value>Send</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>cmdVariantUri</key>
-                    <value>ctype::FlowstepVariant/cname::Send/version::1.0.4</value>
-                </ifl:property>
-            </bpmn2:extensionElements>
-            <bpmn2:incoming>SequenceFlow_89</bpmn2:incoming>
-            <bpmn2:outgoing>SequenceFlow_78</bpmn2:outgoing>
-        </bpmn2:serviceTask>
         <bpmn2:exclusiveGateway default="SequenceFlow_106" id="ExclusiveGateway_102" name="Router 1">
             <bpmn2:extensionElements>
                 <ifl:property>
@@ -821,7 +1025,7 @@
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_103_1753181742786" xsi:type="bpmn2:tFormalExpression">/PerPerson/PerPerson</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_103_1780906977099" xsi:type="bpmn2:tFormalExpression">/PerPerson/PerPerson</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
         <bpmn2:sequenceFlow id="SequenceFlow_24" sourceRef="StartEvent_22" targetRef="ServiceTask_63"/>
         <bpmn2:sequenceFlow id="SequenceFlow_86" sourceRef="CallActivity_85" targetRef="CallActivity_88"/>
@@ -847,6 +1051,43 @@
                 <value>Not Required</value>
             </ifl:property>
         </bpmn2:extensionElements>
+        <bpmn2:callActivity id="CallActivity_18" name="Process PerPerson records">
+            <bpmn2:extensionElements>
+                <ifl:property>
+                    <key>loopId</key>
+                    <value>StandardLoopCharacteristics_1780906977099</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>processId</key>
+                    <value>Process_21</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>expressionType</key>
+                    <value>Non XML</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>componentVersion</key>
+                    <value>1.1</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>activityType</key>
+                    <value>ProcessCallElement</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>cmdVariantUri</key>
+                    <value>ctype::FlowstepVariant/cname::LoopingProcess/version::1.1.2</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>subActivityType</key>
+                    <value>LoopingProcess</value>
+                </ifl:property>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>SequenceFlow_101</bpmn2:incoming>
+            <bpmn2:outgoing>SequenceFlow_98</bpmn2:outgoing>
+            <bpmn2:standardLoopCharacteristics id="StandardLoopCharacteristics_1780906977099" loopMaximum="999">
+                <bpmn2:loopCondition id="FormalExpression_1780906977099" xsi:type="bpmn2:tFormalExpression">${property.EC.SuccessFactors_GetEmployment_R.hasMoreRecords} contains 'true'</bpmn2:loopCondition>
+            </bpmn2:standardLoopCharacteristics>
+        </bpmn2:callActivity>
         <bpmn2:callActivity id="CallActivity_100" name="Set ExecutionTimestamp">
             <bpmn2:extensionElements>
                 <ifl:property>
@@ -876,43 +1117,6 @@
             </bpmn2:extensionElements>
             <bpmn2:incoming>SequenceFlow_91</bpmn2:incoming>
             <bpmn2:outgoing>SequenceFlow_101</bpmn2:outgoing>
-        </bpmn2:callActivity>
-        <bpmn2:callActivity id="CallActivity_18" name="Process PerPerson records">
-            <bpmn2:extensionElements>
-                <ifl:property>
-                    <key>loopId</key>
-                    <value>StandardLoopCharacteristics_1753181742786</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>processId</key>
-                    <value>Process_21</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>expressionType</key>
-                    <value>Non XML</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>componentVersion</key>
-                    <value>1.1</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>activityType</key>
-                    <value>ProcessCallElement</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>cmdVariantUri</key>
-                    <value>ctype::FlowstepVariant/cname::LoopingProcess/version::1.1.2</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>subActivityType</key>
-                    <value>LoopingProcess</value>
-                </ifl:property>
-            </bpmn2:extensionElements>
-            <bpmn2:incoming>SequenceFlow_101</bpmn2:incoming>
-            <bpmn2:outgoing>SequenceFlow_98</bpmn2:outgoing>
-            <bpmn2:standardLoopCharacteristics id="StandardLoopCharacteristics_1753181742786" loopMaximum="999">
-                <bpmn2:loopCondition id="FormalExpression_1753181742786" xsi:type="bpmn2:tFormalExpression">${property.EC.SuccessFactors_GetEmployment_R.hasMoreRecords} contains 'true'</bpmn2:loopCondition>
-            </bpmn2:standardLoopCharacteristics>
         </bpmn2:callActivity>
         <bpmn2:serviceTask id="ServiceTask_90" name="Write File Header">
             <bpmn2:extensionElements>
@@ -1085,7 +1289,7 @@ ${in.body}</value>
         </bpmn2:callActivity>
         <bpmn2:startEvent id="StartEvent_40" name="Start Timer">
             <bpmn2:outgoing>SequenceFlow_41</bpmn2:outgoing>
-            <bpmn2:timerEventDefinition id="TimerEventDefinition_2413">
+            <bpmn2:timerEventDefinition id="TimerEventDefinition_157438">
                 <bpmn2:extensionElements>
                     <ifl:property>
                         <key>scheduleKey</key>
@@ -1106,8 +1310,8 @@ ${in.body}</value>
                 </bpmn2:extensionElements>
             </bpmn2:timerEventDefinition>
         </bpmn2:startEvent>
-        <bpmn2:sequenceFlow id="SequenceFlow_101" sourceRef="CallActivity_100" targetRef="CallActivity_18"/>
         <bpmn2:sequenceFlow id="SequenceFlow_98" sourceRef="CallActivity_18" targetRef="CallActivity_97"/>
+        <bpmn2:sequenceFlow id="SequenceFlow_101" sourceRef="CallActivity_100" targetRef="CallActivity_18"/>
         <bpmn2:sequenceFlow id="SequenceFlow_91" sourceRef="ServiceTask_90" targetRef="CallActivity_100"/>
         <bpmn2:sequenceFlow id="SequenceFlow_99" sourceRef="CallActivity_97" targetRef="EndEvent_75"/>
         <bpmn2:sequenceFlow id="SequenceFlow_82" sourceRef="CallActivity_51" targetRef="ServiceTask_90"/>
@@ -1186,6 +1390,9 @@ ${in.body}</value>
             <bpmndi:BPMNShape bpmnElement="EndEvent_105" id="BPMNShape_EndEvent_105">
                 <dc:Bounds height="32.0" width="32.0" x="738.0" y="409.0"/>
             </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="Participant_109" id="BPMNShape_Participant_109">
+                <dc:Bounds height="140.0" width="100.0" x="488.0" y="-7.0"/>
+            </bpmndi:BPMNShape>
             <bpmndi:BPMNEdge bpmnElement="SequenceFlow_91" id="BPMNEdge_SequenceFlow_91" sourceElement="BPMNShape_ServiceTask_90" targetElement="BPMNShape_CallActivity_100">
                 <di:waypoint x="-181.0" xsi:type="dc:Point" y="144.5"/>
                 <di:waypoint x="-46.0" xsi:type="dc:Point" y="144.5"/>
@@ -1261,6 +1468,10 @@ ${in.body}</value>
             <bpmndi:BPMNEdge bpmnElement="MessageFlow_108" id="BPMNEdge_MessageFlow_108" sourceElement="BPMNShape_ServiceTask_77" targetElement="BPMNShape_Participant_80">
                 <di:waypoint x="1258.5" xsi:type="dc:Point" y="322.0"/>
                 <di:waypoint x="1258.5" xsi:type="dc:Point" y="580.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="MessageFlow_110" id="BPMNEdge_MessageFlow_110" sourceElement="BPMNShape_EndEvent_75" targetElement="BPMNShape_Participant_109">
+                <di:waypoint x="319.0" xsi:type="dc:Point" y="141.0"/>
+                <di:waypoint x="525.0" xsi:type="dc:Point" y="30.0"/>
             </bpmndi:BPMNEdge>
         </bpmndi:BPMNPlane>
     </bpmndi:BPMNDiagram>

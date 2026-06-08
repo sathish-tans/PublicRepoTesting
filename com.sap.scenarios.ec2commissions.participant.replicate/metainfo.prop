@@ -1,6 +1,6 @@
 #Store metainfo properties
-#Mon Jun 08 08:15:52 UTC 2026
+#Mon Jun 08 08:23:57 UTC 2026
 SAP-MarkedSAP2SAP=SAP_TO_SAP_INTEGRATION
-description=Replicates participant records from SAP SuccessFactors Employee Central to SAP SuccessFactors Incentive Management
+description=
 source=SAPSuccessFactorsEmployeeCentral
 target=SAPCommissions

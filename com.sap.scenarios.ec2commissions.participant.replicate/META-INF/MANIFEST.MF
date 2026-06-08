@@ -37,7 +37,7 @@ Origin-Bundle-Name: Participant Replication to SAP SuccessFactors Incent
 SAP-RuntimeProfile: iflmap
 Bundle-Name: Participant Replication to SAP SuccessFactors Incentive Man
  agement
-Bundle-Version: 1.0.3
+Bundle-Version: 1.0.4
 SAP-NodeType: IFLMAP
 Origin-ModifiedDate: 1759284893270
 Import-Service: com.sap.esb.webservice.audit.log.AuditLogger,com.sap.esb
