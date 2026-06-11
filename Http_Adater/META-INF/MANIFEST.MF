@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Http_Adater
+Bundle-Name: Http_Adapter_test
 Bundle-SymbolicName: Http_Adater; singleton:=true
 Bundle-Version: 1.0.11
 SAP-BundleType: IntegrationFlow
