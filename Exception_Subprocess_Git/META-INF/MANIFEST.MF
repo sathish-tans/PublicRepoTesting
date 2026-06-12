@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Exception Subprocess Git
+Bundle-Name: Exception Subprocess Git user updated
 Bundle-SymbolicName: Exception_Subprocess_Git; singleton:=true
-Bundle-Version: 1.0.5
+Bundle-Version: 1.0.6
 SAP-BundleType: IntegrationFlow
 SAP-NodeType: IFLMAP
 SAP-RuntimeProfile: iflmap
