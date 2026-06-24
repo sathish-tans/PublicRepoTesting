@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions targetNamespace="http://sapcd.com/fsnagt"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://sapcd.com/fsnagt"
+	xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+	xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<wsdl:documentation>
+		<sidl:sidl xmlns:sidl="http://www.sap.com/2007/03/sidl" />
+	</wsdl:documentation>
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://sapcd.com/fsnagt"
+			xmlns:xi0="http://sapcd.com/fsnagt" xmlns="http://sapcd.com/fsnagt">
+			<xsd:complexType name="ExchangeFaultData">
+				<xsd:sequence>
+					<xsd:element name="faultText" type="xsd:string" />
+					<xsd:element name="faultUrl" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="faultDetail" type="ExchangeLogData"
+						minOccurs="0" maxOccurs="unbounded" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="ExchangeLogData">
+				<xsd:sequence>
+					<xsd:element name="severity" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="text" type="xsd:string" />
+					<xsd:element name="url" type="xsd:string" minOccurs="0" />
+					<xsd:element name="id" type="xsd:string" minOccurs="0" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="ExtendedHeader">
+				<xsd:sequence>
+					<xsd:element name="Parameter" maxOccurs="unbounded">
+						<xsd:complexType>
+							<xsd:simpleContent>
+								<xsd:extension base="xsd:string">
+									<xsd:attribute name="name" use="required" type="xsd:string" />
+									<xsd:attribute name="type" type="xsd:string" />
+								</xsd:extension>
+							</xsd:simpleContent>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="FSNMessage">
+				<xsd:sequence>
+					<xsd:element name="SenderId" type="SenderId" />
+					<xsd:element name="ReceiverId" type="ReceiverId" />
+					<xsd:element name="MessageType" type="MessageType" />
+					<xsd:element name="FileName" type="FileName" />
+					<xsd:element name="NumberOfRecords" type="NumberOfRecords" />
+					<xsd:element name="MessageId" type="MessageId" />
+					<xsd:element name="RelatedMessageId" type="RelatedMessageId"
+						minOccurs="0" />
+					<xsd:element name="ExtendedHeader" type="ExtendedHeader"
+						minOccurs="0" />
+					<xsd:element name="MessageContent" type="MessageContent" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="FSNMessageBulk">
+				<xsd:sequence>
+					<xsd:element name="FSNMessage" type="FSNMessage"
+						minOccurs="0" maxOccurs="unbounded" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:simpleType name="FileName">
+				<xsd:restriction base="xsd:string" />
+			</xsd:simpleType>
+			<xsd:simpleType name="MessageContent">
+				<xsd:restriction base="xsd:string" />
+			</xsd:simpleType>
+			<xsd:simpleType name="MessageId">
+				<xsd:restriction base="xsd:string" />
+			</xsd:simpleType>
+			<xsd:simpleType name="MessageType">
+				<xsd:restriction base="xsd:string" />
+			</xsd:simpleType>
+			<xsd:simpleType name="NumberOfRecords">
+				<xsd:restriction base="xsd:integer" />
+			</xsd:simpleType>
+			<xsd:simpleType name="ReceiverId">
+				<xsd:restriction base="xsd:string" />
+			</xsd:simpleType>
+			<xsd:simpleType name="RelatedMessageId">
+				<xsd:restriction base="xsd:string" />
+			</xsd:simpleType>
+			<xsd:simpleType name="SenderId">
+				<xsd:restriction base="xsd:string" />
+			</xsd:simpleType>
+			<xsd:element name="FSNMessageBulk" type="FSNMessageBulk" />
+			<xsd:element name="FaultMessageType">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="standard" type="ExchangeFaultData" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="FSNMessageBulk">
+		<wsdl:part name="FSNMessageBulk" element="tns:FSNMessageBulk" />
+	</wsdl:message>
+	<wsdl:message name="FaultMessageType">
+		<wsdl:part name="FaultMessageType" element="tns:FaultMessageType" />
+	</wsdl:message>
+	
+ 	<wsdl:portType name="FSNInterface_Out">
+		<wsdl:operation name="FSNInterface_Out">
+			<wsdl:input message="tns:FSNMessageBulk" />
+		</wsdl:operation>
+	</wsdl:portType>
+	
+	<wsdl:binding name="FSN_IN_BND" type="tns:FSNInterface_Out">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document" />
+		<wsdl:operation name="FSNInterface_Out">
+			<soap:operation soapAction="http://sap.com/xi/WebService/soap1.1" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+	</wsdl:binding>
+	
+	<wsdl:service name="FSN_IN_SRV">
+		<wsdl:port name="FSN_IN_BND" binding="tns:FSN_IN_BND">
+			<soap:address
+				location="https://ifld035999mk2avatarmercury-mk2.bsn.neo.ondemand.com/cxf/CorpTenant_CT" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
