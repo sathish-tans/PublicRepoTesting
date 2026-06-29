@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:ifl="http:///com.sap.ifl.model/Ifl.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1">
     <bpmn2:collaboration id="Collaboration_1" name="Default Collaboration">
-        <bpmn2:documentation id="Documentation_1696918088893" textFormat="text/plain">Employee Mastr Data replication from Employee Central to ERP Payroll</bpmn2:documentation>
+        <bpmn2:documentation id="Documentation_1782712764400" textFormat="text/plain">Employee Mastr Data replication from Employee Central to ERP Payroll</bpmn2:documentation>
         <bpmn2:extensionElements>
             <ifl:property>
                 <key>namespaceMapping</key>
@@ -565,19 +565,6 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
                 <value>ctype::FlowElementVariant/cname::LocalIntegrationProcess</value>
             </ifl:property>
         </bpmn2:extensionElements>
-        <bpmn2:startEvent id="StartEvent_2" name="Start">
-            <bpmn2:extensionElements>
-                <ifl:property>
-                    <key>cmdVariantUri</key>
-                    <value>ctype::FlowstepVariant/cname::StartEvent</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>activityType</key>
-                    <value>StartEvent</value>
-                </ifl:property>
-            </bpmn2:extensionElements>
-            <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
-        </bpmn2:startEvent>
         <bpmn2:callActivity id="CallActivity_28" name="Log ERP Message">
             <bpmn2:extensionElements>
                 <ifl:property>
@@ -679,11 +666,24 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
             <bpmn2:incoming>SequenceFlow_74</bpmn2:incoming>
             <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
         </bpmn2:callActivity>
-        <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="StartEvent_2" targetRef="CallActivity_24"/>
+        <bpmn2:startEvent id="StartEvent_2" name="Start">
+            <bpmn2:extensionElements>
+                <ifl:property>
+                    <key>cmdVariantUri</key>
+                    <value>ctype::FlowstepVariant/cname::StartEvent</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>activityType</key>
+                    <value>StartEvent</value>
+                </ifl:property>
+            </bpmn2:extensionElements>
+            <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+        </bpmn2:startEvent>
         <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="CallActivity_28" targetRef="ServiceTask_8"/>
         <bpmn2:sequenceFlow id="SequenceFlow_15" sourceRef="CallActivity_24" targetRef="CallActivity_28"/>
         <bpmn2:sequenceFlow id="SequenceFlow_74" sourceRef="ServiceTask_8" targetRef="CallActivity_32"/>
         <bpmn2:sequenceFlow id="SequenceFlow_3" sourceRef="CallActivity_32" targetRef="EndEvent_12"/>
+        <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="StartEvent_2" targetRef="CallActivity_24"/>
     </bpmn2:process>
     <bpmn2:process id="Process_3" name="Query Employee Master Data">
         <bpmn2:extensionElements>
@@ -696,19 +696,6 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
                 <value>ctype::FlowElementVariant/cname::LocalIntegrationProcess</value>
             </ifl:property>
         </bpmn2:extensionElements>
-        <bpmn2:startEvent id="StartEvent_3" name="Start">
-            <bpmn2:extensionElements>
-                <ifl:property>
-                    <key>cmdVariantUri</key>
-                    <value>ctype::FlowstepVariant/cname::StartEvent</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>activityType</key>
-                    <value>StartEvent</value>
-                </ifl:property>
-            </bpmn2:extensionElements>
-            <bpmn2:outgoing>SequenceFlow_78</bpmn2:outgoing>
-        </bpmn2:startEvent>
         <bpmn2:callActivity id="CallActivity_4" name="Build Query">
             <bpmn2:extensionElements>
                 <ifl:property>
@@ -802,28 +789,6 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
             </bpmn2:extensionElements>
             <bpmn2:incoming>SequenceFlow_72</bpmn2:incoming>
         </bpmn2:endEvent>
-        <bpmn2:callActivity id="CallActivity_19" name="Process Call">
-            <bpmn2:extensionElements>
-                <ifl:property>
-                    <key>processId</key>
-                    <value>Process_2</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>activityType</key>
-                    <value>ProcessCallElement</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>cmdVariantUri</key>
-                    <value>ctype::FlowstepVariant/cname::NonLoopingProcess</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>subActivityType</key>
-                    <value>NonLoopingProcess</value>
-                </ifl:property>
-            </bpmn2:extensionElements>
-            <bpmn2:incoming>SequenceFlow_10</bpmn2:incoming>
-            <bpmn2:outgoing>SequenceFlow_68</bpmn2:outgoing>
-        </bpmn2:callActivity>
         <bpmn2:callActivity id="CallActivity_23" name="Content Modifier">
             <bpmn2:extensionElements>
                 <ifl:property>
@@ -913,6 +878,41 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
             <bpmn2:outgoing>SequenceFlow_22</bpmn2:outgoing>
             <bpmn2:outgoing>SequenceFlow_57</bpmn2:outgoing>
         </bpmn2:exclusiveGateway>
+        <bpmn2:startEvent id="StartEvent_3" name="Start">
+            <bpmn2:extensionElements>
+                <ifl:property>
+                    <key>cmdVariantUri</key>
+                    <value>ctype::FlowstepVariant/cname::StartEvent</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>activityType</key>
+                    <value>StartEvent</value>
+                </ifl:property>
+            </bpmn2:extensionElements>
+            <bpmn2:outgoing>SequenceFlow_78</bpmn2:outgoing>
+        </bpmn2:startEvent>
+        <bpmn2:callActivity id="CallActivity_19" name="Process Call">
+            <bpmn2:extensionElements>
+                <ifl:property>
+                    <key>processId</key>
+                    <value>Process_2</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>activityType</key>
+                    <value>ProcessCallElement</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>cmdVariantUri</key>
+                    <value>ctype::FlowstepVariant/cname::NonLoopingProcess</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>subActivityType</key>
+                    <value>NonLoopingProcess</value>
+                </ifl:property>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>SequenceFlow_10</bpmn2:incoming>
+            <bpmn2:outgoing>SequenceFlow_68</bpmn2:outgoing>
+        </bpmn2:callActivity>
         <bpmn2:endEvent id="EndEvent_5" name="No data found">
             <bpmn2:extensionElements>
                 <ifl:property>
@@ -929,12 +929,10 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
             <bpmn2:incoming>SequenceFlow_36</bpmn2:incoming>
             <bpmn2:terminateEventDefinition/>
         </bpmn2:endEvent>
-        <bpmn2:sequenceFlow id="SequenceFlow_78" sourceRef="StartEvent_3" targetRef="CallActivity_4"/>
         <bpmn2:sequenceFlow id="SequenceFlow_12" sourceRef="CallActivity_4" targetRef="ExclusiveGateway_2"/>
         <bpmn2:sequenceFlow id="SequenceFlow_10" sourceRef="CallActivity_3" targetRef="CallActivity_19"/>
         <bpmn2:sequenceFlow id="SequenceFlow_18" sourceRef="ServiceTask_4" targetRef="ExclusiveGateway_10"/>
         <bpmn2:sequenceFlow id="SequenceFlow_35" sourceRef="ServiceTask_7" targetRef="ExclusiveGateway_10"/>
-        <bpmn2:sequenceFlow id="SequenceFlow_68" sourceRef="CallActivity_19" targetRef="CallActivity_23"/>
         <bpmn2:sequenceFlow id="SequenceFlow_72" sourceRef="CallActivity_23" targetRef="EndEvent_1"/>
         <bpmn2:sequenceFlow id="SequenceFlow_34" name="Employee Status" sourceRef="ExclusiveGateway_2" targetRef="ExclusiveGateway_6">
             <bpmn2:extensionElements>
@@ -951,7 +949,7 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_34_1696918088899" xsi:type="bpmn2:tFormalExpression">${property.PROCESS_VARIANT} = '2'</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_34_1782712764405" xsi:type="bpmn2:tFormalExpression">${property.PROCESS_VARIANT} = '2'</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
         <bpmn2:sequenceFlow id="SequenceFlow_36" name="default" sourceRef="ExclusiveGateway_2" targetRef="EndEvent_5">
             <bpmn2:extensionElements>
@@ -984,7 +982,7 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_32_1696918088900" xsi:type="bpmn2:tFormalExpression">${property.PROCESS_VARIANT} = '1'</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_32_1782712764406" xsi:type="bpmn2:tFormalExpression">${property.PROCESS_VARIANT} = '1'</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
         <bpmn2:sequenceFlow id="SequenceFlow_37" name="Employee Status" sourceRef="ExclusiveGateway_6" targetRef="ServiceTask_7">
             <bpmn2:extensionElements>
@@ -1001,7 +999,7 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_37_1696918088900" xsi:type="bpmn2:tFormalExpression">${property.PERSON_ID_EXTERNAL} = ''</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_37_1782712764406" xsi:type="bpmn2:tFormalExpression">${property.PERSON_ID_EXTERNAL} = ''</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
         <bpmn2:sequenceFlow id="SequenceFlow_39" name="PersonIdExternal maintained" sourceRef="ExclusiveGateway_6" targetRef="EndEvent_5">
             <bpmn2:extensionElements>
@@ -1050,8 +1048,10 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_57_1696918088901" xsi:type="bpmn2:tFormalExpression">/queryCompoundEmployeeResponse/CompoundEmployee</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_57_1782712764407" xsi:type="bpmn2:tFormalExpression">/queryCompoundEmployeeResponse/CompoundEmployee</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
+        <bpmn2:sequenceFlow id="SequenceFlow_78" sourceRef="StartEvent_3" targetRef="CallActivity_4"/>
+        <bpmn2:sequenceFlow id="SequenceFlow_68" sourceRef="CallActivity_19" targetRef="CallActivity_23"/>
     </bpmn2:process>
     <bpmn2:process id="Process_1" name="Scheduled Processing">
         <bpmn2:extensionElements>
@@ -1064,7 +1064,7 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
             <bpmn2:extensionElements>
                 <ifl:property>
                     <key>loopId</key>
-                    <value>StandardLoopCharacteristics_1696918088901</value>
+                    <value>StandardLoopCharacteristics_1782712764407</value>
                 </ifl:property>
                 <ifl:property>
                     <key>processId</key>
@@ -1089,9 +1089,63 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
             </bpmn2:extensionElements>
             <bpmn2:incoming>SequenceFlow_29</bpmn2:incoming>
             <bpmn2:outgoing>SequenceFlow_80</bpmn2:outgoing>
-            <bpmn2:standardLoopCharacteristics id="StandardLoopCharacteristics_1696918088901" loopMaximum="999">
-                <bpmn2:loopCondition id="FormalExpression_1696918088901" xsi:type="bpmn2:tFormalExpression">${property.SAP_SuccessFactorsHasMoreRecords.EC_CE_API_QUERY.Compound_API_Query} contains 'true'</bpmn2:loopCondition>
+            <bpmn2:standardLoopCharacteristics id="StandardLoopCharacteristics_1782712764407" loopMaximum="999">
+                <bpmn2:loopCondition id="FormalExpression_1782712764407" xsi:type="bpmn2:tFormalExpression">${property.SAP_SuccessFactorsHasMoreRecords.EC_CE_API_QUERY.Compound_API_Query} contains 'true'</bpmn2:loopCondition>
             </bpmn2:standardLoopCharacteristics>
+        </bpmn2:callActivity>
+        <bpmn2:endEvent id="EndEvent_10" name="End">
+            <bpmn2:extensionElements>
+                <ifl:property>
+                    <key>cmdVariantUri</key>
+                    <value>ctype::FlowstepVariant/cname::MessageEndEvent</value>
+                </ifl:property>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>SequenceFlow_81</bpmn2:incoming>
+            <bpmn2:messageEventDefinition/>
+        </bpmn2:endEvent>
+        <bpmn2:callActivity id="_CallActivity_40" name="Content Modifier">
+            <bpmn2:extensionElements>
+                <ifl:property>
+                    <key>property_1</key>
+                    <value>Name:=:DATE_NOW:;Type:=:expression:;Datatype:=:java.lang.String:;Value:=:${date:now:yyyy-MM-dd'T'HH:mm:ss'Z'}:;Default:=:</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>property_0</key>
+                    <value>Name:=:PROCESS_VARIANT:;Type:=:constant:;Datatype:=:java.lang.String:;Value:=:1:;Default:=:</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>wrapContent</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>activityType</key>
+                    <value>Enricher</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>cmdVariantUri</key>
+                    <value>ctype::FlowstepVariant/cname::Enricher</value>
+                </ifl:property>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>SequenceFlow_60</bpmn2:incoming>
+            <bpmn2:outgoing>SequenceFlow_29</bpmn2:outgoing>
+        </bpmn2:callActivity>
+        <bpmn2:callActivity id="_CallActivity_41" name="Content Modifier 100">
+            <bpmn2:extensionElements>
+                <ifl:property>
+                    <key>wrapContent</key>
+                    <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;queryCompoundEmployeeResponse&gt;&lt;/queryCompoundEmployeeResponse&gt;</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>activityType</key>
+                    <value>Enricher</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>cmdVariantUri</key>
+                    <value>ctype::FlowstepVariant/cname::Enricher</value>
+                </ifl:property>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>SequenceFlow_8</bpmn2:incoming>
+            <bpmn2:outgoing>SequenceFlow_31</bpmn2:outgoing>
         </bpmn2:callActivity>
         <bpmn2:startEvent id="StartEvent_8" name="Start Event 8">
             <bpmn2:extensionElements>
@@ -1103,16 +1157,6 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
             <bpmn2:outgoing>SequenceFlow_8</bpmn2:outgoing>
             <bpmn2:messageEventDefinition/>
         </bpmn2:startEvent>
-        <bpmn2:endEvent id="EndEvent_10" name="End">
-            <bpmn2:extensionElements>
-                <ifl:property>
-                    <key>cmdVariantUri</key>
-                    <value>ctype::FlowstepVariant/cname::MessageEndEvent</value>
-                </ifl:property>
-            </bpmn2:extensionElements>
-            <bpmn2:incoming>SequenceFlow_81</bpmn2:incoming>
-            <bpmn2:messageEventDefinition/>
-        </bpmn2:endEvent>
         <bpmn2:callActivity id="_CallActivity_49" name="Process Call">
             <bpmn2:extensionElements>
                 <ifl:property>
@@ -1179,57 +1223,13 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
             <bpmn2:incoming>SequenceFlow_31</bpmn2:incoming>
             <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
         </bpmn2:callActivity>
-        <bpmn2:callActivity id="_CallActivity_40" name="Content Modifier">
-            <bpmn2:extensionElements>
-                <ifl:property>
-                    <key>property_1</key>
-                    <value>Name:=:DATE_NOW:;Type:=:expression:;Datatype:=:java.lang.String:;Value:=:${date:now:yyyy-MM-dd'T'HH:mm:ss'Z'}:;Default:=:</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>property_0</key>
-                    <value>Name:=:PROCESS_VARIANT:;Type:=:constant:;Datatype:=:java.lang.String:;Value:=:1:;Default:=:</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>wrapContent</key>
-                    <value/>
-                </ifl:property>
-                <ifl:property>
-                    <key>activityType</key>
-                    <value>Enricher</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>cmdVariantUri</key>
-                    <value>ctype::FlowstepVariant/cname::Enricher</value>
-                </ifl:property>
-            </bpmn2:extensionElements>
-            <bpmn2:incoming>SequenceFlow_60</bpmn2:incoming>
-            <bpmn2:outgoing>SequenceFlow_29</bpmn2:outgoing>
-        </bpmn2:callActivity>
-        <bpmn2:callActivity id="_CallActivity_41" name="Content Modifier">
-            <bpmn2:extensionElements>
-                <ifl:property>
-                    <key>wrapContent</key>
-                    <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;queryCompoundEmployeeResponse&gt;&lt;/queryCompoundEmployeeResponse&gt;</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>activityType</key>
-                    <value>Enricher</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>cmdVariantUri</key>
-                    <value>ctype::FlowstepVariant/cname::Enricher</value>
-                </ifl:property>
-            </bpmn2:extensionElements>
-            <bpmn2:incoming>SequenceFlow_8</bpmn2:incoming>
-            <bpmn2:outgoing>SequenceFlow_31</bpmn2:outgoing>
-        </bpmn2:callActivity>
         <bpmn2:sequenceFlow id="SequenceFlow_80" sourceRef="_CallActivity_36" targetRef="_CallActivity_49"/>
+        <bpmn2:sequenceFlow id="SequenceFlow_29" sourceRef="_CallActivity_40" targetRef="_CallActivity_36"/>
+        <bpmn2:sequenceFlow id="SequenceFlow_31" sourceRef="_CallActivity_41" targetRef="CallActivity_29"/>
         <bpmn2:sequenceFlow id="SequenceFlow_8" sourceRef="StartEvent_8" targetRef="_CallActivity_41"/>
         <bpmn2:sequenceFlow id="SequenceFlow_81" sourceRef="_CallActivity_49" targetRef="EndEvent_10"/>
         <bpmn2:sequenceFlow id="SequenceFlow_60" sourceRef="_CallActivity_47" targetRef="_CallActivity_40"/>
         <bpmn2:sequenceFlow id="SequenceFlow_5" sourceRef="CallActivity_29" targetRef="_CallActivity_47"/>
-        <bpmn2:sequenceFlow id="SequenceFlow_29" sourceRef="_CallActivity_40" targetRef="_CallActivity_36"/>
-        <bpmn2:sequenceFlow id="SequenceFlow_31" sourceRef="_CallActivity_41" targetRef="CallActivity_29"/>
     </bpmn2:process>
     <bpmn2:process id="Process_6" name="Write Last Modified Date">
         <bpmn2:extensionElements>
@@ -1242,19 +1242,6 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
                 <value>ctype::FlowElementVariant/cname::LocalIntegrationProcess</value>
             </ifl:property>
         </bpmn2:extensionElements>
-        <bpmn2:startEvent id="StartEvent_6" name="Start">
-            <bpmn2:extensionElements>
-                <ifl:property>
-                    <key>cmdVariantUri</key>
-                    <value>ctype::FlowstepVariant/cname::StartEvent</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>activityType</key>
-                    <value>StartEvent</value>
-                </ifl:property>
-            </bpmn2:extensionElements>
-            <bpmn2:outgoing>SequenceFlow_85</bpmn2:outgoing>
-        </bpmn2:startEvent>
         <bpmn2:endEvent id="EndEvent_6" name="End">
             <bpmn2:extensionElements>
                 <ifl:property>
@@ -1334,7 +1321,19 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
             <bpmn2:outgoing>SequenceFlow_86</bpmn2:outgoing>
             <bpmn2:outgoing>SequenceFlow_87</bpmn2:outgoing>
         </bpmn2:exclusiveGateway>
-        <bpmn2:sequenceFlow id="SequenceFlow_85" sourceRef="StartEvent_6" targetRef="ExclusiveGateway_7"/>
+        <bpmn2:startEvent id="StartEvent_6" name="Start">
+            <bpmn2:extensionElements>
+                <ifl:property>
+                    <key>cmdVariantUri</key>
+                    <value>ctype::FlowstepVariant/cname::StartEvent</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>activityType</key>
+                    <value>StartEvent</value>
+                </ifl:property>
+            </bpmn2:extensionElements>
+            <bpmn2:outgoing>SequenceFlow_85</bpmn2:outgoing>
+        </bpmn2:startEvent>
         <bpmn2:sequenceFlow id="SequenceFlow_58" sourceRef="CallActivity_7" targetRef="EndEvent_6"/>
         <bpmn2:sequenceFlow id="SequenceFlow_86" name="PERSON_ID_EXTERNAL empty" sourceRef="ExclusiveGateway_7" targetRef="CallActivity_7">
             <bpmn2:extensionElements>
@@ -1351,7 +1350,7 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_86_1696918088905" xsi:type="bpmn2:tFormalExpression">${property.PERSON_ID_EXTERNAL} = ''</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_86_1782712764410" xsi:type="bpmn2:tFormalExpression">${property.PERSON_ID_EXTERNAL} = ''</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
         <bpmn2:sequenceFlow id="SequenceFlow_87" name="PERSON_ID_EXTERNAL filled" sourceRef="ExclusiveGateway_7" targetRef="EndEvent_9">
             <bpmn2:extensionElements>
@@ -1369,6 +1368,7 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
                 </ifl:property>
             </bpmn2:extensionElements>
         </bpmn2:sequenceFlow>
+        <bpmn2:sequenceFlow id="SequenceFlow_85" sourceRef="StartEvent_6" targetRef="ExclusiveGateway_7"/>
     </bpmn2:process>
     <bpmn2:process id="Process_7" name="Read External Parameters">
         <bpmn2:extensionElements>
@@ -1381,19 +1381,6 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
                 <value>ctype::FlowElementVariant/cname::LocalIntegrationProcess</value>
             </ifl:property>
         </bpmn2:extensionElements>
-        <bpmn2:startEvent id="StartEvent_7" name="Start">
-            <bpmn2:extensionElements>
-                <ifl:property>
-                    <key>cmdVariantUri</key>
-                    <value>ctype::FlowstepVariant/cname::StartEvent</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>activityType</key>
-                    <value>StartEvent</value>
-                </ifl:property>
-            </bpmn2:extensionElements>
-            <bpmn2:outgoing>SequenceFlow_76</bpmn2:outgoing>
-        </bpmn2:startEvent>
         <bpmn2:endEvent id="EndEvent_7" name="End">
             <bpmn2:extensionElements>
                 <ifl:property>
@@ -1411,55 +1398,55 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
             <bpmn2:extensionElements>
                 <ifl:property>
                     <key>property_7</key>
-                    <value>Name:=:CONTINGENT_WORKERS:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{CONTINGENT_WORKERS}}:;Default:=:</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>property_12</key>
-                    <value>Name:=:COMPANY:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{COMPANY}}:;Default:=:</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>property_6</key>
-                    <value>Name:=:ENABLE_LOGGING:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{ENABLE_PAYLOAD_LOGGING}}:;Default:=:</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>property_11</key>
-                    <value>Name:=:SFSF_EC_PUSH_URL:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{SFSF_EC_PUSH_URL}}:;Default:=:</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>property_9</key>
-                    <value>Name:=:ENABLE_NOTIFICATION:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{ENABLE_NOTIFICATION}}:;Default:=:</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>property_10</key>
-                    <value>Name:=:CUSTOM_MDF_OBJECTS:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{CUSTOM_MDF_OBJECTS}}:;Default:=:</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>property_8</key>
-                    <value>Name:=:PERSON_ID_EXTERNAL:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{PERSON_ID_EXTERNAL}}:;Default:=:</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>property_3</key>
-                    <value>Name:=:EXTERNAL_COST_CENTER_ID_USAGE:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{USE_EXTERNAL_COST_CENTER}}:;Default:=:</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>property_2</key>
                     <value>Name:=:REPLICATION_TARGET_SYSTEM:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{REPLICATION_TARGET_SYSTEM}}:;Default:=:</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>property_5</key>
-                    <value>Name:=:USER_SET_LAST_MODIFIED_DATE_TIME:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{USER_SET_LAST_MODIFIED_DATE_TIME}}:;Default:=:</value>
+                    <key>property_12</key>
+                    <value>Name:=:CONTINGENT_WORKERS:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{CONTINGENT_WORKERS}}:;Default:=:</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>property_14</key>
+                    <key>property_6</key>
                     <value>Name:=:EMPLOYEE_CLASS:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{EMPLOYEE_CLASS}}:;Default:=:</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>property_4</key>
+                    <key>property_11</key>
+                    <value>Name:=:ENABLE_LOGGING:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{ENABLE_PAYLOAD_LOGGING}}:;Default:=:</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>property_9</key>
                     <value>Name:=:MULTIPLE_JOB_EVENTS:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{MULTIPLE_JOB_EVENTS}}:;Default:=:</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>property_13</key>
+                    <key>property_10</key>
+                    <value>Name:=:USER_SET_LAST_MODIFIED_DATE_TIME:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{USER_SET_LAST_MODIFIED_DATE_TIME}}:;Default:=:</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>property_8</key>
+                    <value>Name:=:EXTERNAL_COST_CENTER_ID_USAGE:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{USE_EXTERNAL_COST_CENTER}}:;Default:=:</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>property_3</key>
+                    <value>Name:=:SFSF_EC_PUSH_URL:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{SFSF_EC_PUSH_URL}}:;Default:=:</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>property_2</key>
+                    <value>Name:=:CUSTOM_MDF_OBJECTS:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{CUSTOM_MDF_OBJECTS}}:;Default:=:</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>property_5</key>
                     <value>Name:=:COMPANY_TERRITORY_CODE:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{COUNTRY}}:;Default:=:</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>property_14</key>
+                    <value>Name:=:ENABLE_NOTIFICATION:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{ENABLE_NOTIFICATION}}:;Default:=:</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>property_4</key>
+                    <value>Name:=:COMPANY:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{COMPANY}}:;Default:=:</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>property_13</key>
+                    <value>Name:=:PERSON_ID_EXTERNAL:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{PERSON_ID_EXTERNAL}}:;Default:=:</value>
                 </ifl:property>
                 <ifl:property>
                     <key>property_1</key>
@@ -1485,8 +1472,21 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
             <bpmn2:incoming>SequenceFlow_76</bpmn2:incoming>
             <bpmn2:outgoing>SequenceFlow_77</bpmn2:outgoing>
         </bpmn2:callActivity>
-        <bpmn2:sequenceFlow id="SequenceFlow_76" sourceRef="StartEvent_7" targetRef="CallActivity_27"/>
+        <bpmn2:startEvent id="StartEvent_7" name="Start">
+            <bpmn2:extensionElements>
+                <ifl:property>
+                    <key>cmdVariantUri</key>
+                    <value>ctype::FlowstepVariant/cname::StartEvent</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>activityType</key>
+                    <value>StartEvent</value>
+                </ifl:property>
+            </bpmn2:extensionElements>
+            <bpmn2:outgoing>SequenceFlow_76</bpmn2:outgoing>
+        </bpmn2:startEvent>
         <bpmn2:sequenceFlow id="SequenceFlow_77" sourceRef="CallActivity_27" targetRef="EndEvent_7"/>
+        <bpmn2:sequenceFlow id="SequenceFlow_76" sourceRef="StartEvent_7" targetRef="CallActivity_27"/>
     </bpmn2:process>
     <bpmn2:process id="Process_5" name="Read Last Modified Date">
         <bpmn2:extensionElements>
@@ -1499,19 +1499,6 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
                 <value>ctype::FlowElementVariant/cname::LocalIntegrationProcess</value>
             </ifl:property>
         </bpmn2:extensionElements>
-        <bpmn2:startEvent id="StartEvent_5" name="Start">
-            <bpmn2:extensionElements>
-                <ifl:property>
-                    <key>cmdVariantUri</key>
-                    <value>ctype::FlowstepVariant/cname::StartEvent</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>activityType</key>
-                    <value>StartEvent</value>
-                </ifl:property>
-            </bpmn2:extensionElements>
-            <bpmn2:outgoing>SequenceFlow_44</bpmn2:outgoing>
-        </bpmn2:startEvent>
         <bpmn2:endEvent id="EndEvent_3" name="End">
             <bpmn2:extensionElements>
                 <ifl:property>
@@ -1547,8 +1534,21 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
             <bpmn2:incoming>SequenceFlow_44</bpmn2:incoming>
             <bpmn2:outgoing>SequenceFlow_55</bpmn2:outgoing>
         </bpmn2:callActivity>
-        <bpmn2:sequenceFlow id="SequenceFlow_44" sourceRef="StartEvent_5" targetRef="_CallActivity_46"/>
+        <bpmn2:startEvent id="StartEvent_5" name="Start">
+            <bpmn2:extensionElements>
+                <ifl:property>
+                    <key>cmdVariantUri</key>
+                    <value>ctype::FlowstepVariant/cname::StartEvent</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>activityType</key>
+                    <value>StartEvent</value>
+                </ifl:property>
+            </bpmn2:extensionElements>
+            <bpmn2:outgoing>SequenceFlow_44</bpmn2:outgoing>
+        </bpmn2:startEvent>
         <bpmn2:sequenceFlow id="SequenceFlow_55" sourceRef="_CallActivity_46" targetRef="EndEvent_3"/>
+        <bpmn2:sequenceFlow id="SequenceFlow_44" sourceRef="StartEvent_5" targetRef="_CallActivity_46"/>
     </bpmn2:process>
     <bpmndi:BPMNDiagram id="BPMNDiagram_1" name="Default Collaboration Diagram">
         <bpmndi:BPMNPlane bpmnElement="Collaboration_1" id="BPMNPlane_1">
