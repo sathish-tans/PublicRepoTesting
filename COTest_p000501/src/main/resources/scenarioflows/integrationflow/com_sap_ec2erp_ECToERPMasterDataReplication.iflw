@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:ifl="http:///com.sap.ifl.model/Ifl.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1">
     <bpmn2:collaboration id="Collaboration_1" name="Default Collaboration">
-        <bpmn2:documentation id="Documentation_1782713454981" textFormat="text/plain">Employee Mastr Data replication from Employee Central to ERP Payroll</bpmn2:documentation>
+        <bpmn2:documentation id="Documentation_1782748371313" textFormat="text/plain">Employee Mastr Data replication from Employee Central to ERP Payroll</bpmn2:documentation>
         <bpmn2:extensionElements>
             <ifl:property>
                 <key>namespaceMapping</key>
@@ -949,7 +949,7 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_34_1782713454987" xsi:type="bpmn2:tFormalExpression">${property.PROCESS_VARIANT} = '2'</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_34_1782748371317" xsi:type="bpmn2:tFormalExpression">${property.PROCESS_VARIANT} = '2'</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
         <bpmn2:sequenceFlow id="SequenceFlow_36" name="default" sourceRef="ExclusiveGateway_2" targetRef="EndEvent_5">
             <bpmn2:extensionElements>
@@ -982,7 +982,7 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_32_1782713454987" xsi:type="bpmn2:tFormalExpression">${property.PROCESS_VARIANT} = '1'</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_32_1782748371318" xsi:type="bpmn2:tFormalExpression">${property.PROCESS_VARIANT} = '1'</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
         <bpmn2:sequenceFlow id="SequenceFlow_37" name="Employee Status" sourceRef="ExclusiveGateway_6" targetRef="ServiceTask_7">
             <bpmn2:extensionElements>
@@ -999,7 +999,7 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_37_1782713454988" xsi:type="bpmn2:tFormalExpression">${property.PERSON_ID_EXTERNAL} = ''</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_37_1782748371318" xsi:type="bpmn2:tFormalExpression">${property.PERSON_ID_EXTERNAL} = ''</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
         <bpmn2:sequenceFlow id="SequenceFlow_39" name="PersonIdExternal maintained" sourceRef="ExclusiveGateway_6" targetRef="EndEvent_5">
             <bpmn2:extensionElements>
@@ -1048,7 +1048,7 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_57_1782713454988" xsi:type="bpmn2:tFormalExpression">/queryCompoundEmployeeResponse/CompoundEmployee</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_57_1782748371319" xsi:type="bpmn2:tFormalExpression">/queryCompoundEmployeeResponse/CompoundEmployee</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
         <bpmn2:sequenceFlow id="SequenceFlow_78" sourceRef="StartEvent_3" targetRef="CallActivity_4"/>
         <bpmn2:sequenceFlow id="SequenceFlow_68" sourceRef="CallActivity_19" targetRef="CallActivity_23"/>
@@ -1064,7 +1064,7 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
             <bpmn2:extensionElements>
                 <ifl:property>
                     <key>loopId</key>
-                    <value>StandardLoopCharacteristics_1782713454988</value>
+                    <value>StandardLoopCharacteristics_1782748371319</value>
                 </ifl:property>
                 <ifl:property>
                     <key>processId</key>
@@ -1089,8 +1089,8 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
             </bpmn2:extensionElements>
             <bpmn2:incoming>SequenceFlow_29</bpmn2:incoming>
             <bpmn2:outgoing>SequenceFlow_80</bpmn2:outgoing>
-            <bpmn2:standardLoopCharacteristics id="StandardLoopCharacteristics_1782713454988" loopMaximum="999">
-                <bpmn2:loopCondition id="FormalExpression_1782713454988" xsi:type="bpmn2:tFormalExpression">${property.SAP_SuccessFactorsHasMoreRecords.EC_CE_API_QUERY.Compound_API_Query} contains 'true'</bpmn2:loopCondition>
+            <bpmn2:standardLoopCharacteristics id="StandardLoopCharacteristics_1782748371319" loopMaximum="999">
+                <bpmn2:loopCondition id="FormalExpression_1782748371319" xsi:type="bpmn2:tFormalExpression">${property.SAP_SuccessFactorsHasMoreRecords.EC_CE_API_QUERY.Compound_API_Query} contains 'true'</bpmn2:loopCondition>
             </bpmn2:standardLoopCharacteristics>
         </bpmn2:callActivity>
         <bpmn2:endEvent id="EndEvent_10" name="End">
@@ -1201,7 +1201,7 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
             <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
             <bpmn2:outgoing>SequenceFlow_60</bpmn2:outgoing>
         </bpmn2:callActivity>
-        <bpmn2:callActivity id="CallActivity_29" name="Process Call">
+        <bpmn2:callActivity id="CallActivity_29" name="Process Call 12">
             <bpmn2:extensionElements>
                 <ifl:property>
                     <key>processId</key>
@@ -1350,7 +1350,7 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_86_1782713454992" xsi:type="bpmn2:tFormalExpression">${property.PERSON_ID_EXTERNAL} = ''</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_86_1782748371322" xsi:type="bpmn2:tFormalExpression">${property.PERSON_ID_EXTERNAL} = ''</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
         <bpmn2:sequenceFlow id="SequenceFlow_87" name="PERSON_ID_EXTERNAL filled" sourceRef="ExclusiveGateway_7" targetRef="EndEvent_9">
             <bpmn2:extensionElements>
@@ -1398,55 +1398,55 @@ Query : SELECT ${property.CUSTOM_MDF_OBJECTS} EmployeeDataReplicationElement, ${
             <bpmn2:extensionElements>
                 <ifl:property>
                     <key>property_7</key>
-                    <value>Name:=:CUSTOM_MDF_OBJECTS:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{CUSTOM_MDF_OBJECTS}}:;Default:=:</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>property_12</key>
-                    <value>Name:=:REPLICATION_TARGET_SYSTEM:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{REPLICATION_TARGET_SYSTEM}}:;Default:=:</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>property_6</key>
-                    <value>Name:=:ENABLE_NOTIFICATION:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{ENABLE_NOTIFICATION}}:;Default:=:</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>property_11</key>
-                    <value>Name:=:EMPLOYEE_CLASS:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{EMPLOYEE_CLASS}}:;Default:=:</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>property_9</key>
-                    <value>Name:=:COMPANY:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{COMPANY}}:;Default:=:</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>property_10</key>
-                    <value>Name:=:COMPANY_TERRITORY_CODE:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{COUNTRY}}:;Default:=:</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>property_8</key>
-                    <value>Name:=:SFSF_EC_PUSH_URL:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{SFSF_EC_PUSH_URL}}:;Default:=:</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>property_3</key>
-                    <value>Name:=:ENABLE_LOGGING:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{ENABLE_PAYLOAD_LOGGING}}:;Default:=:</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>property_2</key>
-                    <value>Name:=:USER_SET_LAST_MODIFIED_DATE_TIME:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{USER_SET_LAST_MODIFIED_DATE_TIME}}:;Default:=:</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>property_5</key>
                     <value>Name:=:PERSON_ID_EXTERNAL:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{PERSON_ID_EXTERNAL}}:;Default:=:</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>property_14</key>
-                    <value>Name:=:MULTIPLE_JOB_EVENTS:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{MULTIPLE_JOB_EVENTS}}:;Default:=:</value>
+                    <key>property_12</key>
+                    <value>Name:=:COMPANY_TERRITORY_CODE:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{COUNTRY}}:;Default:=:</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>property_4</key>
+                    <key>property_6</key>
                     <value>Name:=:CONTINGENT_WORKERS:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{CONTINGENT_WORKERS}}:;Default:=:</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>property_13</key>
+                    <key>property_11</key>
+                    <value>Name:=:COMPANY:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{COMPANY}}:;Default:=:</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>property_9</key>
+                    <value>Name:=:CUSTOM_MDF_OBJECTS:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{CUSTOM_MDF_OBJECTS}}:;Default:=:</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>property_10</key>
+                    <value>Name:=:SFSF_EC_PUSH_URL:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{SFSF_EC_PUSH_URL}}:;Default:=:</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>property_8</key>
+                    <value>Name:=:ENABLE_NOTIFICATION:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{ENABLE_NOTIFICATION}}:;Default:=:</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>property_3</key>
+                    <value>Name:=:MULTIPLE_JOB_EVENTS:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{MULTIPLE_JOB_EVENTS}}:;Default:=:</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>property_2</key>
                     <value>Name:=:EXTERNAL_COST_CENTER_ID_USAGE:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{USE_EXTERNAL_COST_CENTER}}:;Default:=:</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>property_5</key>
+                    <value>Name:=:ENABLE_LOGGING:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{ENABLE_PAYLOAD_LOGGING}}:;Default:=:</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>property_14</key>
+                    <value>Name:=:REPLICATION_TARGET_SYSTEM:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{REPLICATION_TARGET_SYSTEM}}:;Default:=:</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>property_4</key>
+                    <value>Name:=:USER_SET_LAST_MODIFIED_DATE_TIME:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{USER_SET_LAST_MODIFIED_DATE_TIME}}:;Default:=:</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>property_13</key>
+                    <value>Name:=:EMPLOYEE_CLASS:;Type:=:external parameter:;Datatype:=:java.lang.String:;Value:=:{{EMPLOYEE_CLASS}}:;Default:=:</value>
                 </ifl:property>
                 <ifl:property>
                     <key>property_1</key>
