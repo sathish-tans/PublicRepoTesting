@@ -61,7 +61,7 @@ Import-Package:  com.sap.esb.webservice.one.way, com.sap.gateway.core.ip
 Origin-Bundle-Name: COTest_p000501
 SAP-RuntimeProfile: iflmap
 Bundle-Name: COTest_p000501
-Bundle-Version: 2.1.19
+Bundle-Version: 2.1.20
 Bundle-ClassPath: .
 SAP-NodeType: IFLMAP
 Origin-ModifiedDate: 1657110235946
