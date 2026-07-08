@@ -85,10 +85,10 @@
         <bpmn2:participant id="Participant_Process_1" ifl:type="IntegrationProcess" name="Integration Process" processRef="Process_1">
             <bpmn2:extensionElements/>
         </bpmn2:participant>
-        <bpmn2:messageFlow id="MessageFlow_7" name="HTTP" sourceRef="EndEvent_2" targetRef="Participant_2">
+        <bpmn2:messageFlow id="MessageFlow_8" name="Mail" sourceRef="EndEvent_2" targetRef="Participant_2">
             <bpmn2:extensionElements>
                 <ifl:property>
-                    <key>apiName</key>
+                    <key>server</key>
                     <value/>
                 </ifl:property>
                 <ifl:property>
@@ -96,188 +96,176 @@
                     <value/>
                 </ifl:property>
                 <ifl:property>
-                    <key>methodSourceExpression</key>
+                    <key>bcc</key>
                     <value/>
                 </ifl:property>
                 <ifl:property>
-                    <key>apiArtifactType</key>
+                    <key>attachments</key>
                     <value/>
                 </ifl:property>
                 <ifl:property>
-                    <key>providerAuth</key>
+                    <key>auth</key>
+                    <value>loginEncrypted</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>subject</key>
                     <value/>
                 </ifl:property>
                 <ifl:property>
-                    <key>retryOnExceptionsTable</key>
-                    <value/>
+                    <key>encrypt.smime.aes.keysize</key>
+                    <value>128</value>
                 </ifl:property>
                 <ifl:property>
                     <key>ComponentNS</key>
-                    <value>sap</value>
+                    <value>com.sap.it.ide.mail.ui.namespace2</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>privateKeyAlias</key>
-                    <value/>
+                    <key>keep_attachments</key>
+                    <value>0</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>httpMethod</key>
-                    <value>POST</value>
+                    <key>body</key>
+                    <value>${in.body}</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>apiprovider_location_id</key>
-                    <value/>
+                    <key>ssl</key>
+                    <value>starttls_mandatory</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>allowedResponseHeaders</key>
-                    <value>*</value>
+                    <key>timeout</key>
+                    <value>30000</value>
                 </ifl:property>
                 <ifl:property>
                     <key>Name</key>
-                    <value>HTTP</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>internetProxyType</key>
-                    <value/>
+                    <value>Mail</value>
                 </ifl:property>
                 <ifl:property>
                     <key>TransportProtocolVersion</key>
-                    <value>1.20.2</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>retryOnException</key>
-                    <value>false</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>proxyPort</key>
-                    <value/>
+                    <value>1.0</value>
                 </ifl:property>
                 <ifl:property>
                     <key>ComponentSWCVName</key>
-                    <value>external</value>
+                    <value>com.sap.it.ide.mail.ui.archive2</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>streaming</key>
-                    <value>false</value>
+                    <key>proxyPort</key>
+                    <value>8080</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>enableMPLAttachments</key>
-                    <value>true</value>
+                    <key>encrypt.smime.des.keysize</key>
+                    <value>128</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>pooledConnectionIdleTimeout</key>
-                    <value>300000</value>
+                    <key>content_type</key>
+                    <value>text/plain</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>httpAddressQuery</key>
+                    <key>locationId</key>
                     <value/>
                 </ifl:property>
                 <ifl:property>
-                    <key>httpRequestTimeout</key>
-                    <value>60000</value>
+                    <key>encrypt.smime.algorithm</key>
+                    <value>aes</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>ComponentSWCVId</key>
-                    <value>1.20.2</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>providerName</key>
+                    <key>signature.smime.table</key>
                     <value/>
                 </ifl:property>
                 <ifl:property>
-                    <key>allowedRequestHeaders</key>
-                    <value>traceparent</value>
+                    <key>from</key>
+                    <value/>
                 </ifl:property>
                 <ifl:property>
                     <key>MessageProtocol</key>
                     <value>None</value>
                 </ifl:property>
                 <ifl:property>
+                    <key>ComponentSWCVId</key>
+                    <value>com.sap.it.ide.mail.ui.archive2</value>
+                </ifl:property>
+                <ifl:property>
                     <key>direction</key>
                     <value>Receiver</value>
                 </ifl:property>
                 <ifl:property>
+                    <key>cc</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>attachmentTransferEncoding</key>
+                    <value>auto</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>encrypt.smime.aes.gcm.keysize</key>
+                    <value>128</value>
+                </ifl:property>
+                <ifl:property>
                     <key>ComponentType</key>
-                    <value>HTTP</value>
+                    <value>Mail</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>httpShouldSendBody</key>
-                    <value>false</value>
+                    <key>proxyProtocol</key>
+                    <value>socks5</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>throwExceptionOnFailure</key>
-                    <value>true</value>
+                    <key>content_encoding</key>
+                    <value>UTF-8</value>
                 </ifl:property>
                 <ifl:property>
                     <key>proxyType</key>
-                    <value>default</value>
+                    <value>none</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>proxyAlias</key>
+                    <value/>
                 </ifl:property>
                 <ifl:property>
                     <key>componentVersion</key>
-                    <value>1.20</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>retryIteration</key>
-                    <value>1</value>
+                    <value>1.12</value>
                 </ifl:property>
                 <ifl:property>
                     <key>proxyHost</key>
                     <value/>
                 </ifl:property>
                 <ifl:property>
-                    <key>providerUrl</key>
-                    <value/>
-                </ifl:property>
-                <ifl:property>
-                    <key>retryOnConnectionFailure</key>
-                    <value>false</value>
-                </ifl:property>
-                <ifl:property>
                     <key>system</key>
                     <value>Receiver</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>authenticationMethod</key>
-                    <value>None</value>
+                    <key>signature.smime.clearText</key>
+                    <value>1</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>locationID</key>
-                    <value/>
-                </ifl:property>
-                <ifl:property>
-                    <key>retryInterval</key>
-                    <value>5</value>
+                    <key>encrypt.type</key>
+                    <value>none</value>
                 </ifl:property>
                 <ifl:property>
                     <key>TransportProtocol</key>
-                    <value>HTTP</value>
+                    <value>SMTP</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>tokenCredential</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>to</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>encrypt.smime.keys</key>
+                    <value/>
                 </ifl:property>
                 <ifl:property>
                     <key>cmdVariantUri</key>
-                    <value>ctype::AdapterVariant/cname::sap:HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.20.2</value>
+                    <value>ctype::AdapterVariant/cname::sap:Mail/tp::SMTP/mp::None/direction::Receiver/version::1.12.1</value>
                 </ifl:property>
                 <ifl:property>
-                    <key>httpErrorResponseCodes</key>
-                    <value/>
-                </ifl:property>
-                <ifl:property>
-                    <key>credentialName</key>
-                    <value/>
-                </ifl:property>
-                <ifl:property>
-                    <key>apiDisplayName</key>
+                    <key>user</key>
                     <value/>
                 </ifl:property>
                 <ifl:property>
                     <key>MessageProtocolVersion</key>
-                    <value>1.20.2</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>providerRelativeUrl</key>
-                    <value/>
-                </ifl:property>
-                <ifl:property>
-                    <key>httpAddressWithoutQuery</key>
-                    <value>http://sap.com</value>
+                    <value>1.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
         </bpmn2:messageFlow>
@@ -377,26 +365,26 @@
             <bpmndi:BPMNShape bpmnElement="Participant_2" id="BPMNShape_Participant_2">
                 <dc:Bounds height="140.0" width="100.0" x="900.0" y="100.0"/>
             </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="CallActivity_4" id="BPMNShape_CallActivity_4">
+                <dc:Bounds height="60.0" width="100.0" x="371.0" y="128.0"/>
+            </bpmndi:BPMNShape>
             <bpmndi:BPMNShape bpmnElement="Participant_1" id="BPMNShape_Participant_1">
                 <dc:Bounds height="140.0" width="100.0" x="40.0" y="100.0"/>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape bpmnElement="Participant_Process_1" id="BPMNShape_Participant_Process_1">
                 <dc:Bounds height="220.0" width="569.0" x="250.0" y="60.0"/>
             </bpmndi:BPMNShape>
-            <bpmndi:BPMNShape bpmnElement="CallActivity_4" id="BPMNShape_CallActivity_4">
-                <dc:Bounds height="60.0" width="100.0" x="371.0" y="128.0"/>
-            </bpmndi:BPMNShape>
-            <bpmndi:BPMNEdge bpmnElement="SequenceFlow_3" id="BPMNEdge_SequenceFlow_3" sourceElement="BPMNShape_StartEvent_2" targetElement="BPMNShape_CallActivity_4">
-                <di:waypoint x="308.0" xsi:type="dc:Point" y="158.0"/>
-                <di:waypoint x="421.0" xsi:type="dc:Point" y="158.0"/>
-            </bpmndi:BPMNEdge>
             <bpmndi:BPMNEdge bpmnElement="SequenceFlow_5" id="BPMNEdge_SequenceFlow_5" sourceElement="BPMNShape_CallActivity_4" targetElement="BPMNShape_EndEvent_2">
                 <di:waypoint x="421.0" xsi:type="dc:Point" y="158.0"/>
                 <di:waypoint x="719.0" xsi:type="dc:Point" y="158.0"/>
             </bpmndi:BPMNEdge>
-            <bpmndi:BPMNEdge bpmnElement="MessageFlow_7" id="BPMNEdge_MessageFlow_7" sourceElement="BPMNShape_EndEvent_2" targetElement="BPMNShape_Participant_2">
+            <bpmndi:BPMNEdge bpmnElement="SequenceFlow_3" id="BPMNEdge_SequenceFlow_3" sourceElement="BPMNShape_StartEvent_2" targetElement="BPMNShape_CallActivity_4">
+                <di:waypoint x="308.0" xsi:type="dc:Point" y="158.0"/>
+                <di:waypoint x="421.0" xsi:type="dc:Point" y="158.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="MessageFlow_8" id="BPMNEdge_MessageFlow_8" sourceElement="BPMNShape_EndEvent_2" targetElement="BPMNShape_Participant_2">
                 <di:waypoint x="719.0" xsi:type="dc:Point" y="158.0"/>
-                <di:waypoint x="914.0" xsi:type="dc:Point" y="123.0"/>
+                <di:waypoint x="907.0" xsi:type="dc:Point" y="158.0"/>
             </bpmndi:BPMNEdge>
         </bpmndi:BPMNPlane>
     </bpmndi:BPMNDiagram>
