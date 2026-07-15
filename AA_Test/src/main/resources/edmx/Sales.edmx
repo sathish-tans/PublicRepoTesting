@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZKK_DPC_OCI">
+            <EntityType Name="SalesOrderLineItem">
+                <Key>
+                    <PropertyRef Name="SalesOrderItemKey"/>
+                    <PropertyRef Name="SalesOrderKey"/>
+                </Key>
+                <Property MaxLength="32" Name="SalesOrderItemKey" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="32" Name="SalesOrderKey" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="255" Name="CurrencyCodeDescription" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="10" Name="OpportunityItemPosition" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="255" Name="ProductName" Nullable="false" Type="Edm.String"/>
+                <Property Name="NetSum" Nullable="false" Precision="15" Scale="2" Type="Edm.Decimal"/>
+                <Property Name="TotalSum" Nullable="false" Precision="15" Scale="2" Type="Edm.Decimal"/>
+                <Property MaxLength="10" Name="SalesOrderItem" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="5" Name="Currency" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="32" Name="ProductKey" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="10" Name="ProductID" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="15" Name="Availability" Nullable="false" Type="Edm.String"/>
+                <Property Name="Tax" Nullable="false" Precision="15" Scale="2" Type="Edm.Decimal"/>
+                <Property MaxLength="255" Name="Note" Nullable="false" Type="Edm.String"/>
+                <NavigationProperty FromRole="ToRole_ProductToSalesOrderLines" Name="Product" Relationship="ZKK_DPC_OCI.ProductToSalesOrderLines" ToRole="FromRole_ProductToSalesOrderLines"/>
+            </EntityType>
+            <EntityType Name="SalesOrder">
+                <Key>
+                    <PropertyRef Name="SalesOrderKey"/>
+                </Key>
+                <Property MaxLength="32" Name="SalesOrderKey" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="10" Name="SalesOrderID" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="40" Name="CreatedByEmployeeLastName" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="1" Name="Status" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="40" Name="ChangedByEmployeeLastName" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="12" Name="ChangedByEmployeeUserID" Nullable="false" Type="Edm.String"/>
+                <Property Name="NetSum" Nullable="false" Precision="15" Scale="2" Type="Edm.Decimal"/>
+                <Property MaxLength="32" Name="CustomerKey" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="12" Name="CreatedByEmployeeUserID" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="1" Name="DeliveryStatus" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="255" Name="CurrencyCodeDescription" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="60" Name="StatusDescription" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="80" Name="ChangedByCustomerName" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="40" Name="CreatedByEmployeeFirstName" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="60" Name="DeliveryStatusDescription" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="255" Name="Note" Nullable="false" Type="Edm.String"/>
+                <Property Name="CreatedAt" Nullable="false" Precision="7" Type="Edm.DateTime"/>
+                <Property Name="Tax" Nullable="false" Precision="15" Scale="2" Type="Edm.Decimal"/>
+                <Property Name="TotalSum" Nullable="false" Precision="15" Scale="2" Type="Edm.Decimal"/>
+                <Property MaxLength="80" Name="CreatedByCustomerName" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="40" Name="ChangedByEmployeeFirstName" Nullable="false" Type="Edm.String"/>
+                <Property Name="ChangedAt" Nullable="false" Precision="7" Type="Edm.DateTime"/>
+                <Property MaxLength="10" Name="CustomerID" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="80" Name="CustomerName" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="1" Name="BillingStatus" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="60" Name="BillingStatusDescription" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="5" Name="Currency" Nullable="false" Type="Edm.String"/>
+                <NavigationProperty FromRole="FromRole_salesorderlineitems" Name="salesorderlineitems" Relationship="ZKK_DPC_OCI.salesorderlineitems" ToRole="ToRole_salesorderlineitems"/>
+                <NavigationProperty FromRole="FromRole_SOStatus" Name="SalesOrderStatus" Relationship="ZKK_DPC_OCI.SOStatus" ToRole="ToRole_SOStatus"/>
+                <NavigationProperty FromRole="FromRole_SODeliveryStatus" Name="SalesOrderDeliveryStatus" Relationship="ZKK_DPC_OCI.SODeliveryStatus" ToRole="ToRole_SODeliveryStatus"/>
+                <NavigationProperty FromRole="FromRole_SOBillingStatus" Name="SalesOrderBillingStatus" Relationship="ZKK_DPC_OCI.SOBillingStatus" ToRole="ToRole_SOBillingStatus"/>
+                <NavigationProperty FromRole="FromRole_SOCurrency" Name="SalesOrderCurrency" Relationship="ZKK_DPC_OCI.SOCurrency" ToRole="ToRole_SOCurrency"/>
+                <NavigationProperty FromRole="ToRole_SO_TO_BP" Name="BusinessPartner" Relationship="ZKK_DPC_OCI.SO_TO_BP" ToRole="FromRole_SO_TO_BP"/>
+            </EntityType>
+            <EntityType Name="Status">
+                <Key>
+                    <PropertyRef Name="StatusCode"/>
+                </Key>
+                <Property Name="StatusCode" Nullable="false" Type="Edm.String"/>
+                <Property Name="StatusDescription" Nullable="false" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="DeliveryStatus">
+                <Key>
+                    <PropertyRef Name="DeliveryStatusCode"/>
+                </Key>
+                <Property Name="DeliveryStatusCode" Nullable="false" Type="Edm.String"/>
+                <Property Name="DeliveryStatusDescription" Nullable="false" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="BillingStatus">
+                <Key>
+                    <PropertyRef Name="BillingStatusCode"/>
+                </Key>
+                <Property Name="BillingStatusCode" Nullable="false" Type="Edm.String"/>
+                <Property Name="BillingStatusDescription" Nullable="false" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Currency">
+                <Key>
+                    <PropertyRef Name="CurrencyCode"/>
+                </Key>
+                <Property Name="CurrencyCode" Nullable="false" Type="Edm.String"/>
+                <Property Name="CurrencyDescription" Nullable="false" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="ContactPerson">
+                <Key>
+                    <PropertyRef Name="ContactKey"/>
+                </Key>
+                <Property MaxLength="32" Name="ContactKey" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="2" Name="AddressTypeCode" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="32" Name="AddressKey" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="40" Name="FullName" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="10" Name="Title" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="32" Name="BusinessPartnerKey" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="2" Name="LanguageCode" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="3" Name="CountryCode" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="40" Name="NickName" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="10" Name="Building" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="10" Name="PostalCode" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="40" Name="LastName" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="40" Name="City" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="60" Name="GenderText" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="10" Name="Initials" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="40" Name="FirstName" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="60" Name="LanguageText" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="60" Name="Street" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="255" Name="EmailAddress" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="40" Name="MiddleName" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="30" Name="FaxNumber" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="60" Name="AddressTypeText" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="30" Name="TelephoneNumber" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="1" Name="GenderCode" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="60" Name="CountryText" Nullable="false" Type="Edm.String"/>
+                <NavigationProperty FromRole="FromRole_ToRelatedContacts_Country" Name="Country" Relationship="ZKK_DPC_OCI.ToRelatedContacts_Country" ToRole="ToRole_ToRelatedContacts_Country"/>
+                <NavigationProperty FromRole="FromRole_ToRelatedContacts_AddressType" Name="AddressType" Relationship="ZKK_DPC_OCI.ToRelatedContacts_AddressType" ToRole="ToRole_ToRelatedContacts_AddressType"/>
+                <NavigationProperty FromRole="FromRole_ToRelatedContacts_Gender" Name="Gender" Relationship="ZKK_DPC_OCI.ToRelatedContacts_Gender" ToRole="ToRole_ToRelatedContacts_Gender"/>
+            </EntityType>
+            <EntityType Name="BusinessPartner">
+                <Key>
+                    <PropertyRef Name="BusinessPartnerKey"/>
+                </Key>
+                <Property MaxLength="32" Name="BusinessPartnerKey" Nullable="false" Type="Edm.String"/>
+                <Property Name="Address" Nullable="false" Type="ZKK_DPC_OCI.Address"/>
+                <Property MaxLength="10" Name="BusinessPartnerID" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="80" Name="Company" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="60" Name="BusinessPartnerRoleText" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="60" Name="CurrencyText" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="60" Name="WebAddress" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="3" Name="BusinessPartnerRoleCode" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="30" Name="FaxNumber" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="10" Name="LegalForm" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="255" Name="EmailAddress" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="30" Name="TelephoneNumber" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="5" Name="CurrencyCode" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="3" Name="CountryCode" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="1" Name="GenderCode" Nullable="false" Type="Edm.String"/>
+                <NavigationProperty FromRole="FromRole_ToRelatedContacts" Name="RelatedContacts" Relationship="ZKK_DPC_OCI.ToRelatedContacts" ToRole="ToRole_ToRelatedContacts"/>
+                <NavigationProperty FromRole="FromRole_ToBusinessPartnerRole" Name="BusinessPartnerRole" Relationship="ZKK_DPC_OCI.ToBusinessPartnerRole" ToRole="ToRole_ToBusinessPartnerRole"/>
+                <NavigationProperty FromRole="FromRole_ToGender" Name="Gender" Relationship="ZKK_DPC_OCI.ToGender" ToRole="ToRole_ToGender"/>
+                <NavigationProperty FromRole="FromRole_ToCountry" Name="Country" Relationship="ZKK_DPC_OCI.ToCountry" ToRole="ToRole_ToCountry"/>
+                <NavigationProperty FromRole="FromRole_ToCurrency" Name="Currency" Relationship="ZKK_DPC_OCI.ToCurrency" ToRole="ToRole_ToCurrency"/>
+            </EntityType>
+            <EntityType Name="AddressType">
+                <Key>
+                    <PropertyRef Name="AddressTypeCode"/>
+                </Key>
+                <Property Name="AddressTypeCode" Nullable="false" Type="Edm.String"/>
+                <Property Name="AddressTypeText" Nullable="false" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="BusinessPartnerRole">
+                <Key>
+                    <PropertyRef Name="BusinessPartnerRoleCode"/>
+                </Key>
+                <Property Name="BusinessPartnerRoleCode" Nullable="false" Type="Edm.String"/>
+                <Property Name="BusinessPartnerRoleText" Nullable="false" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Gender">
+                <Key>
+                    <PropertyRef Name="GenderCode"/>
+                </Key>
+                <Property Name="GenderCode" Nullable="false" Type="Edm.String"/>
+                <Property Name="GenderText" Nullable="false" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Country">
+                <Key>
+                    <PropertyRef Name="CountryCode"/>
+                </Key>
+               <Property Name="CountryCode" Nullable="false" Type="Edm.String"/>
+                <Property Name="CountryText" Nullable="false" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Language">
+                <Key>
+                    <PropertyRef Name="LanguageCode"/>
+                </Key>
+                <Property Name="LanguageCode" Nullable="false" Type="Edm.String"/>
+                <Property Name="LanguageText" Nullable="false" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Product">
+                <Key>
+                    <PropertyRef Name="ProductKey"/>
+                </Key>
+                <Property MaxLength="32" Name="ProductKey" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="255" Name="ProductName" Nullable="false" Type="Edm.String"/>
+                <Property Name="ChangedAt" Nullable="false" Precision="7" Type="Edm.DateTime"/>
+                <Property MaxLength="255" Name="TaxTariffText" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="10" Name="ProductID" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="3" Name="DimensionUnit" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="255" Name="WeightUnitText" Nullable="false" Type="Edm.String"/>
+                <Property Name="UnitPrice" Nullable="false" Precision="15" Scale="2" Type="Edm.Decimal"/>
+                <Property Name="WeightMeasure" Nullable="false" Precision="13" Scale="3" Type="Edm.Decimal"/>
+                <Property Name="ProductWidth" Nullable="false" Precision="13" Scale="3" Type="Edm.Decimal"/>
+                <Property MaxLength="255" Name="DimensionUnitText" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="10" Name="SupplierID" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="255" Name="ProductDescription" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="40" Name="ProductCategory" Nullable="false" Type="Edm.String"/>
+                <Property Name="TaxTariffCode" Nullable="false" Type="Edm.Byte"/>
+                <Property MaxLength="3" Name="QuantityUnit" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="2" Name="ProductTypeCode" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="255" Name="QuantityUnitText" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="3" Name="WeightUnitCode" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="80" Name="SupplierName" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="5" Name="CurrencyCode" Nullable="false" Type="Edm.String"/>
+                <Property Name="ProductHeight" Nullable="false" Precision="13" Scale="3" Type="Edm.Decimal"/>
+                <Property MaxLength="255" Name="CurrencyText" Nullable="false" Type="Edm.String"/>
+                <Property Name="ProductDepth" Nullable="false" Precision="13" Scale="3" Type="Edm.Decimal"/>
+                <Property MaxLength="32" Name="SupplierGuid" Nullable="false" Type="Edm.String"/>
+                <NavigationProperty FromRole="FromRole_ConversionFactors" Name="ConversionFactors" Relationship="ZKK_DPC_OCI.ConversionFactors" ToRole="ToRole_ConversionFactors"/>
+                <NavigationProperty FromRole="FromRole_TaxTariff" Name="TaxTariff" Relationship="ZKK_DPC_OCI.TaxTariff" ToRole="ToRole_TaxTariff"/>
+             <!--   <NavigationProperty FromRole="FromRole_WeightUnits" Name="WeightUnits" Relationship="ZKK_DPC_OCI.WeightUnits" ToRole="ToRole_WeightUnits"/> -->
+                <NavigationProperty FromRole="FromRole_DimensionUnits" Name="DimensionUnits" Relationship="ZKK_DPC_OCI.DimensionUnits" ToRole="ToRole_DimensionUnits"/>
+                <NavigationProperty FromRole="FromRole_QuantityUnits" Name="QuantityUnits" Relationship="ZKK_DPC_OCI.QuantityUnits" ToRole="ToRole_QuantityUnits"/>
+                <NavigationProperty FromRole="FromRole_ProductTypes" Name="ProductTypes" Relationship="ZKK_DPC_OCI.ProductTypes" ToRole="ToRole_ProductTypes"/>
+                <NavigationProperty FromRole="FromRole_ProductCategories" Name="ProductCategories" Relationship="ZKK_DPC_OCI.ProductCategories" ToRole="ToRole_ProductCategories"/>
+            </EntityType>
+            <EntityType Name="ConversionFactor">
+                <Key>
+                    <PropertyRef Name="ProductKey"/>
+                    <PropertyRef Name="ConversionFactorKey"/>
+                </Key>
+                <Property MaxLength="32" Name="ProductKey" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="32" Name="ConversionFactorKey" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="3" Name="SourceUnitCode" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="3" Name="TargetUnitCode" Nullable="false" Type="Edm.String"/>
+                <Property MaxLength="255" Name="SourceUnitText" Nullable="false" Type="Edm.String"/>
+                <Property Name="Numerator" Nullable="false" Type="Edm.Int32"/>
+                <Property MaxLength="255" Name="TargetUnitText" Nullable="false" Type="Edm.String"/>
+                <Property Name="Denominator" Nullable="false" Type="Edm.Int32"/>
+                <NavigationProperty FromRole="FromRole_SourceUnits" Name="SourceUnits" Relationship="ZKK_DPC_OCI.SourceUnits" ToRole="ToRole_SourceUnits"/>
+                <NavigationProperty FromRole="FromRole_TargetUnits" Name="TargetUnits" Relationship="ZKK_DPC_OCI.TargetUnits" ToRole="ToRole_TargetUnits"/>
+            </EntityType>
+            <EntityType Name="Tariff">
+                <Key>
+                   <PropertyRef Name="TaxTariffCode"/>
+                </Key>
+                <Property Name="TaxTariffCode" Nullable="false" Type="Edm.Byte"/>
+                <Property Name="TariffText" Nullable="false" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="WeightUnit">
+                <Key>
+                    <PropertyRef Name="WeightUnitCode"/>
+                </Key>
+                <Property Name="WeightUnitCode" Nullable="false" Type="Edm.String"/>
+                <Property Name="WeightUnitText" Nullable="false" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="DimensionUnit">
+                <Key>
+                    <PropertyRef Name="DimensionUnitCode"/>
+                </Key>
+                <Property Name="DimensionUnitCode" Nullable="false" Type="Edm.String"/>
+                <Property Name="DimensionUnitText" Nullable="false" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="QuantityUnit">
+                <Key>
+                    <PropertyRef Name="QuantityUnitCode"/>
+                </Key>
+                <Property Name="QuantityUnitCode" Nullable="false" Type="Edm.String"/>
+                <Property Name="QuantityUnitText" Nullable="false" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="SourceUnit">
+                <Key>
+                    <PropertyRef Name="SourceUnitCode"/>
+                </Key>
+                <Property Name="SourceUnitCode" Nullable="false" Type="Edm.String"/>
+                <Property Name="SourceUnitText" Nullable="false" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="TargetUnit">
+                <Key>
+                    <PropertyRef Name="TargetUnitCode"/>
+                </Key>
+                <Property Name="TargetUnitCode" Nullable="false" Type="Edm.String"/>
+                <Property Name="TargetUnitText" Nullable="false" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="ProductType">
+                <Key>
+                    <PropertyRef Name="ProductTypeCode"/>
+                </Key>
+                <Property Name="ProductTypeCode" Nullable="false" Type="Edm.String"/>
+                <Property Name="ProductTypeText" Nullable="false" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="ProductCategory">
+                <Key>
+                    <PropertyRef Name="ProductCategoryCode"/>
+                </Key>
+                <Property Name="ProductCategoryCode" Nullable="false" Type="Edm.String"/>
+                <Property Name="ProductCategoryText" Nullable="false" Type="Edm.String"/>
+            </EntityType>
+            <ComplexType Name="Address">
+                <Property MaxLength="60" Name="Street" Type="Edm.String"/>
+                <Property MaxLength="40" Name="City" Type="Edm.String"/>
+                <Property MaxLength="2" Name="AddressTypeCode" Type="Edm.String"/>
+                <Property MaxLength="10" Name="PostalCode" Type="Edm.String"/>
+                <Property MaxLength="60" Name="CountryText" Type="Edm.String"/>
+                <Property MaxLength="10" Name="Building" Type="Edm.String"/>
+                <Property MaxLength="60" Name="AddressTypeText" Type="Edm.String"/>
+                <Property MaxLength="3" Name="CountryCode" Type="Edm.String"/>
+                <Property MaxLength="32" Name="AddressKey" Type="Edm.String"/>
+            </ComplexType>
+            <Association Name="ToBPFromGender">
+                <End Multiplicity="1" Role="FromRole_ToBPFromGender" Type="ZKK_DPC_OCI.Gender"/>
+                <End Multiplicity="1" Role="ToRole_ToBPFromGender" Type="ZKK_DPC_OCI.BusinessPartner"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToBPFromGender">
+                        <PropertyRef Name="GenderCode"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToBPFromGender">
+                        <PropertyRef Name="GenderCode"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ToProductFromQuantityUnit">
+                <End Multiplicity="1" Role="FromRole_ToProductFromQuantityUnit" Type="ZKK_DPC_OCI.QuantityUnit"/>
+                <End Multiplicity="1" Role="ToRole_ToProductFromQuantityUnit" Type="ZKK_DPC_OCI.Product"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToProductFromQuantityUnit">
+                        <PropertyRef Name="QuantityUnitCode"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToProductFromQuantityUnit">
+                        <PropertyRef Name="QuantityUnit"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ToProductFromTariff">
+                <End Multiplicity="1" Role="FromRole_ToProductFromTariff" Type="ZKK_DPC_OCI.Tariff"/>
+                <End Multiplicity="1" Role="ToRole_ToProductFromTariff" Type="ZKK_DPC_OCI.Product"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToProductFromTariff">
+                        <PropertyRef Name="TaxTariffCode"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToProductFromTariff">
+                        <PropertyRef Name="TaxTariffCode"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ToRelatedContacts_Country">
+                <End Multiplicity="1" Role="FromRole_ToRelatedContacts_Country" Type="ZKK_DPC_OCI.ContactPerson"/>
+                <End Multiplicity="*" Role="ToRole_ToRelatedContacts_Country" Type="ZKK_DPC_OCI.Country"/>
+            </Association>
+            <Association Name="ToRelatedContacts_AddressType">
+                <End Multiplicity="1" Role="FromRole_ToRelatedContacts_AddressType" Type="ZKK_DPC_OCI.ContactPerson"/>
+                <End Multiplicity="*" Role="ToRole_ToRelatedContacts_AddressType" Type="ZKK_DPC_OCI.AddressType"/>
+            </Association>
+            <Association Name="ToRelatedContacts_Gender">
+                <End Multiplicity="1" Role="FromRole_ToRelatedContacts_Gender" Type="ZKK_DPC_OCI.ContactPerson"/>
+                <End Multiplicity="*" Role="ToRole_ToRelatedContacts_Gender" Type="ZKK_DPC_OCI.Gender"/>
+            </Association>
+            <Association Name="ToBPFromBusinessPartnerRole">
+                <End Multiplicity="1" Role="FromRole_ToBPFromBusinessPartnerRole" Type="ZKK_DPC_OCI.BusinessPartnerRole"/>
+                <End Multiplicity="1" Role="ToRole_ToBPFromBusinessPartnerRole" Type="ZKK_DPC_OCI.BusinessPartner"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToBPFromBusinessPartnerRole">
+                        <PropertyRef Name="BusinessPartnerRoleCode"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToBPFromBusinessPartnerRole">
+                        <PropertyRef Name="BusinessPartnerRoleCode"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ToConvFactorFromSourceUnit">
+                <End Multiplicity="1" Role="FromRole_ToConvFactorFromSourceUnit" Type="ZKK_DPC_OCI.SourceUnit"/>
+                <End Multiplicity="1" Role="ToRole_ToConvFactorFromSourceUnit" Type="ZKK_DPC_OCI.ConversionFactor"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToConvFactorFromSourceUnit">
+                        <PropertyRef Name="SourceUnitCode"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToConvFactorFromSourceUnit">
+                        <PropertyRef Name="SourceUnitCode"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ToRelatedContacts">
+                <End Multiplicity="1" Role="FromRole_ToRelatedContacts" Type="ZKK_DPC_OCI.BusinessPartner"/>
+                <End Multiplicity="*" Role="ToRole_ToRelatedContacts" Type="ZKK_DPC_OCI.ContactPerson"/>
+            </Association>
+            <Association Name="ToBusinessPartnerRole">
+                <End Multiplicity="1" Role="FromRole_ToBusinessPartnerRole" Type="ZKK_DPC_OCI.BusinessPartner"/>
+                <End Multiplicity="*" Role="ToRole_ToBusinessPartnerRole" Type="ZKK_DPC_OCI.BusinessPartnerRole"/>
+            </Association>
+            <Association Name="ToGender">
+                <End Multiplicity="1" Role="FromRole_ToGender" Type="ZKK_DPC_OCI.BusinessPartner"/>
+                <End Multiplicity="*" Role="ToRole_ToGender" Type="ZKK_DPC_OCI.Gender"/>
+            </Association>
+            <Association Name="ToCountry">
+                <End Multiplicity="1" Role="FromRole_ToCountry" Type="ZKK_DPC_OCI.BusinessPartner"/>
+                <End Multiplicity="*" Role="ToRole_ToCountry" Type="ZKK_DPC_OCI.Country"/>
+            </Association>
+            <Association Name="ToCurrency">
+                <End Multiplicity="1" Role="FromRole_ToCurrency" Type="ZKK_DPC_OCI.BusinessPartner"/>
+                <End Multiplicity="*" Role="ToRole_ToCurrency" Type="ZKK_DPC_OCI.Currency"/>
+            </Association>
+            <Association Name="SO_TO_BP">
+                <End Multiplicity="0..1" Role="FromRole_SO_TO_BP" Type="ZKK_DPC_OCI.BusinessPartner"/>
+                <End Multiplicity="*" Role="ToRole_SO_TO_BP" Type="ZKK_DPC_OCI.SalesOrder"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_SO_TO_BP">
+                        <PropertyRef Name="BusinessPartnerKey"/>
+                    </Principal>
+                    <Dependent Role="ToRole_SO_TO_BP">
+                        <PropertyRef Name="CustomerKey"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="SOStatus">
+                <End Multiplicity="1" Role="FromRole_SOStatus" Type="ZKK_DPC_OCI.SalesOrder"/>
+                <End Multiplicity="*" Role="ToRole_SOStatus" Type="ZKK_DPC_OCI.Status"/>
+            </Association>
+            <Association Name="SODeliveryStatus">
+                <End Multiplicity="1" Role="FromRole_SODeliveryStatus" Type="ZKK_DPC_OCI.SalesOrder"/>
+                <End Multiplicity="*" Role="ToRole_SODeliveryStatus" Type="ZKK_DPC_OCI.DeliveryStatus"/>
+            </Association>
+            <Association Name="SOBillingStatus">
+                <End Multiplicity="1" Role="FromRole_SOBillingStatus" Type="ZKK_DPC_OCI.SalesOrder"/>
+                <End Multiplicity="*" Role="ToRole_SOBillingStatus" Type="ZKK_DPC_OCI.BillingStatus"/>
+            </Association>
+            <Association Name="SOCurrency">
+                <End Multiplicity="1" Role="FromRole_SOCurrency" Type="ZKK_DPC_OCI.SalesOrder"/>
+                <End Multiplicity="*" Role="ToRole_SOCurrency" Type="ZKK_DPC_OCI.Currency"/>
+            </Association>
+            <Association Name="salesorderlineitems">
+                <End Multiplicity="1" Role="FromRole_salesorderlineitems" Type="ZKK_DPC_OCI.SalesOrder"/>
+                <End Multiplicity="*" Role="ToRole_salesorderlineitems" Type="ZKK_DPC_OCI.SalesOrderLineItem"/>
+            </Association>
+            <Association Name="ToProductFromProductTypes">
+                <End Multiplicity="1" Role="FromRole_ToProductFromProductTypes" Type="ZKK_DPC_OCI.ProductType"/>
+                <End Multiplicity="1" Role="ToRole_ToProductFromProductTypes" Type="ZKK_DPC_OCI.Product"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToProductFromProductTypes">
+                        <PropertyRef Name="ProductTypeCode"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToProductFromProductTypes">
+                        <PropertyRef Name="ProductTypeCode"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ToBPFromCountry">
+                <End Multiplicity="1" Role="FromRole_ToBPFromCountry" Type="ZKK_DPC_OCI.Country"/>
+                <End Multiplicity="1" Role="ToRole_ToBPFromCountry" Type="ZKK_DPC_OCI.BusinessPartner"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToBPFromCountry">
+                        <PropertyRef Name="CountryCode"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToBPFromCountry">
+                        <PropertyRef Name="CountryCode"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ConversionFactors">
+                <End Multiplicity="1" Role="FromRole_ConversionFactors" Type="ZKK_DPC_OCI.Product"/>
+                <End Multiplicity="*" Role="ToRole_ConversionFactors" Type="ZKK_DPC_OCI.ConversionFactor"/>
+            </Association>
+            <Association Name="TaxTariff">
+                <End Multiplicity="1" Role="FromRole_TaxTariff" Type="ZKK_DPC_OCI.Product"/>
+                <End Multiplicity="*" Role="ToRole_TaxTariff" Type="ZKK_DPC_OCI.Tariff"/>
+            </Association>
+           <!-- <Association Name="WeightUnits">
+                <End Multiplicity="1" Role="FromRole_WeightUnits" Type="ZKK_DPC_OCI.Product"/>
+                <End Multiplicity="*" Role="ToRole_WeightUnits" Type="ZKK_DPC_OCI.WeightUnit"/>
+            </Association> -->
+            <Association Name="DimensionUnits">
+                <End Multiplicity="1" Role="FromRole_DimensionUnits" Type="ZKK_DPC_OCI.Product"/>
+                <End Multiplicity="*" Role="ToRole_DimensionUnits" Type="ZKK_DPC_OCI.DimensionUnit"/>
+            </Association>
+            <Association Name="QuantityUnits">
+                <End Multiplicity="1" Role="FromRole_QuantityUnits" Type="ZKK_DPC_OCI.Product"/>
+                <End Multiplicity="*" Role="ToRole_QuantityUnits" Type="ZKK_DPC_OCI.QuantityUnit"/>
+            </Association>
+            <Association Name="ProductTypes">
+                <End Multiplicity="1" Role="FromRole_ProductTypes" Type="ZKK_DPC_OCI.Product"/>
+                <End Multiplicity="*" Role="ToRole_ProductTypes" Type="ZKK_DPC_OCI.ProductType"/>
+            </Association>
+            <Association Name="ProductCategories">
+                <End Multiplicity="1" Role="FromRole_ProductCategories" Type="ZKK_DPC_OCI.Product"/>
+                <End Multiplicity="*" Role="ToRole_ProductCategories" Type="ZKK_DPC_OCI.ProductCategory"/>
+            </Association>
+            <Association Name="ProductToSalesOrderLines">
+                <End Multiplicity="1" Role="FromRole_ProductToSalesOrderLines" Type="ZKK_DPC_OCI.Product"/>
+                <End Multiplicity="1" Role="ToRole_ProductToSalesOrderLines" Type="ZKK_DPC_OCI.SalesOrderLineItem"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ProductToSalesOrderLines">
+                        <PropertyRef Name="ProductKey"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ProductToSalesOrderLines">
+                        <PropertyRef Name="ProductKey"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ToProductFromWeightUnit">
+               <End Multiplicity="1" Role="FromRole_ToProductFromWeightUnit" Type="ZKK_DPC_OCI.WeightUnit"/>
+                <End Multiplicity="1" Role="ToRole_ToProductFromWeightUnit" Type="ZKK_DPC_OCI.Product"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToProductFromWeightUnit">
+                        <PropertyRef Name="WeightUnitCode"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToProductFromWeightUnit">
+                        <PropertyRef Name="WeightUnitCode"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ToProductFromCategories">
+                <End Multiplicity="1" Role="FromRole_ToProductFromCategories" Type="ZKK_DPC_OCI.ProductCategory"/>
+                <End Multiplicity="1" Role="ToRole_ToProductFromCategories" Type="ZKK_DPC_OCI.Product"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToProductFromCategories">
+                        <PropertyRef Name="ProductCategoryCode"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToProductFromCategories">
+                        <PropertyRef Name="ProductCategory"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ProductsInSalesOrder">
+                <End Multiplicity="1" Role="FromRole_ProductsInSalesOrder" Type="ZKK_DPC_OCI.SalesOrderLineItem"/>
+                <End Multiplicity="1" Role="ToRole_ProductsInSalesOrder" Type="ZKK_DPC_OCI.Product"/>
+            </Association>
+            <Association Name="SourceUnits">
+                <End Multiplicity="1" Role="FromRole_SourceUnits" Type="ZKK_DPC_OCI.ConversionFactor"/>
+                <End Multiplicity="*" Role="ToRole_SourceUnits" Type="ZKK_DPC_OCI.SourceUnit"/>
+            </Association>
+            <Association Name="TargetUnits">
+               <End Multiplicity="1" Role="FromRole_TargetUnits" Type="ZKK_DPC_OCI.ConversionFactor"/>
+                <End Multiplicity="*" Role="ToRole_TargetUnits" Type="ZKK_DPC_OCI.TargetUnit"/>
+            </Association>
+            <Association Name="ToBPFromCurrency">
+                <End Multiplicity="1" Role="FromRole_ToBPFromCurrency" Type="ZKK_DPC_OCI.Currency"/>
+                <End Multiplicity="1" Role="ToRole_ToBPFromCurrency" Type="ZKK_DPC_OCI.BusinessPartner"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToBPFromCurrency">
+                        <PropertyRef Name="CurrencyCode"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToBPFromCurrency">
+                        <PropertyRef Name="CurrencyCode"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ToConvFactorFromTargetUnit">
+                <End Multiplicity="1" Role="FromRole_ToConvFactorFromTargetUnit" Type="ZKK_DPC_OCI.TargetUnit"/>
+                <End Multiplicity="1" Role="ToRole_ToConvFactorFromTargetUnit" Type="ZKK_DPC_OCI.ConversionFactor"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToConvFactorFromTargetUnit">
+                        <PropertyRef Name="TargetUnitCode"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToConvFactorFromTargetUnit">
+                        <PropertyRef Name="TargetUnitCode"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ToProductFromDimensionUnit">
+                <End Multiplicity="1" Role="FromRole_ToProductFromDimensionUnit" Type="ZKK_DPC_OCI.DimensionUnit"/>
+                <End Multiplicity="1" Role="ToRole_ToProductFromDimensionUnit" Type="ZKK_DPC_OCI.Product"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToProductFromDimensionUnit">
+                        <PropertyRef Name="DimensionUnitCode"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToProductFromDimensionUnit">
+                        <PropertyRef Name="DimensionUnit"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZKK_DPC_OCI_Entities" m:IsDefaultEntityContainer="true">
+                <EntitySet EntityType="ZKK_DPC_OCI.SalesOrder" Name="SalesOrderCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.Status" Name="StatusCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.DeliveryStatus" Name="DeliveryStatusCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.BillingStatus" Name="BillingStatusCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.Currency" Name="CurrencyCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.ContactPerson" Name="ContactPersonCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.BusinessPartner" Name="BusinessPartnerCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.AddressType" Name="AddressTypeCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.BusinessPartnerRole" Name="BusinessPartnerRoleCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.Gender" Name="GenderCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.Country" Name="CountryCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.Language" Name="LanguageCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.Product" Name="ProductCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.ConversionFactor" Name="ConversionFactorCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.Tariff" Name="TariffCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.WeightUnit" Name="WeightUnitCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.DimensionUnit" Name="DimensionUnitCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.QuantityUnit" Name="QuantityUnitCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.SourceUnit" Name="SourceUnitCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.TargetUnit" Name="TargetUnitCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.ProductType" Name="ProductTypeCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.ProductCategory" Name="ProductCategoryCollection"/>
+                <EntitySet EntityType="ZKK_DPC_OCI.SalesOrderLineItem" Name="SalesOrderLineItemCollection"/>
+                <AssociationSet Association="ZKK_DPC_OCI.ToRelatedContacts_Gender" Name="ToRelatedContacts_Gender_AssocSet">
+                    <End EntitySet="ContactPersonCollection" Role="FromRole_ToRelatedContacts_Gender"/>
+                    <End EntitySet="GenderCollection" Role="ToRole_ToRelatedContacts_Gender"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ToCurrency" Name="ToCurrency_AssocSet">
+                    <End EntitySet="BusinessPartnerCollection" Role="FromRole_ToCurrency"/>
+                    <End EntitySet="CurrencyCollection" Role="ToRole_ToCurrency"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ToBusinessPartnerRole" Name="ToBusinessPartnerRole_AssocSet">
+                    <End EntitySet="BusinessPartnerCollection" Role="FromRole_ToBusinessPartnerRole"/>
+                    <End EntitySet="BusinessPartnerRoleCollection" Role="ToRole_ToBusinessPartnerRole"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ToBPFromCurrency" Name="ToBPFromCurrency_AssocSet">
+                    <End EntitySet="CurrencyCollection" Role="FromRole_ToBPFromCurrency"/>
+                    <End EntitySet="BusinessPartnerCollection" Role="ToRole_ToBPFromCurrency"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.TargetUnits" Name="TargetUnits_AssocSet">
+                    <End EntitySet="ConversionFactorCollection" Role="FromRole_TargetUnits"/>
+                    <End EntitySet="TargetUnitCollection" Role="ToRole_TargetUnits"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.SOBillingStatus" Name="SOBillingStatus_AssocSet">
+                    <End EntitySet="SalesOrderCollection" Role="FromRole_SOBillingStatus"/>
+                    <End EntitySet="BillingStatusCollection" Role="ToRole_SOBillingStatus"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.SOCurrency" Name="SOCurrency_AssocSet">
+                    <End EntitySet="SalesOrderCollection" Role="FromRole_SOCurrency"/>
+                    <End EntitySet="CurrencyCollection" Role="ToRole_SOCurrency"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.salesorderlineitems" Name="salesorderlineitems_AssocSet">
+                    <End EntitySet="SalesOrderCollection" Role="FromRole_salesorderlineitems"/>
+                    <End EntitySet="SalesOrderLineItemCollection" Role="ToRole_salesorderlineitems"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ToRelatedContacts_Country" Name="ToRelatedContacts_Country_AssocSet">
+                    <End EntitySet="ContactPersonCollection" Role="FromRole_ToRelatedContacts_Country"/>
+                    <End EntitySet="CountryCollection" Role="ToRole_ToRelatedContacts_Country"/>
+                </AssociationSet>
+             <!--   <AssociationSet Association="ZKK_DPC_OCI.WeightUnits" Name="WeightUnits_AssocSet">
+                    <End EntitySet="ProductCollection" Role="FromRole_WeightUnits"/>
+                    <End EntitySet="WeightUnitCollection" Role="ToRole_WeightUnits"/>
+                </AssociationSet>  -->
+                <AssociationSet Association="ZKK_DPC_OCI.ToProductFromCategories" Name="ToProductFromCategories_AssocSet">
+                    <End EntitySet="ProductCategoryCollection" Role="FromRole_ToProductFromCategories"/>
+                    <End EntitySet="ProductCollection" Role="ToRole_ToProductFromCategories"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ToCountry" Name="ToCountry_AssocSet">
+                    <End EntitySet="BusinessPartnerCollection" Role="FromRole_ToCountry"/>
+                    <End EntitySet="CountryCollection" Role="ToRole_ToCountry"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.SOStatus" Name="SOStatus_AssocSet">
+                    <End EntitySet="SalesOrderCollection" Role="FromRole_SOStatus"/>
+                    <End EntitySet="StatusCollection" Role="ToRole_SOStatus"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.QuantityUnits" Name="QuantityUnits_AssocSet">
+                    <End EntitySet="ProductCollection" Role="FromRole_QuantityUnits"/>
+                    <End EntitySet="QuantityUnitCollection" Role="ToRole_QuantityUnits"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ProductCategories" Name="ProductCategories_AssocSet">
+                    <End EntitySet="ProductCollection" Role="FromRole_ProductCategories"/>
+                    <End EntitySet="ProductCategoryCollection" Role="ToRole_ProductCategories"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.SO_TO_BP" Name="SO_TO_BP_AssocSet">
+                    <End EntitySet="BusinessPartnerCollection" Role="FromRole_SO_TO_BP"/>
+                    <End EntitySet="SalesOrderCollection" Role="ToRole_SO_TO_BP"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ToRelatedContacts_AddressType" Name="ToRelatedContacts_AddressType_AssocSet">
+                    <End EntitySet="ContactPersonCollection" Role="FromRole_ToRelatedContacts_AddressType"/>
+                    <End EntitySet="AddressTypeCollection" Role="ToRole_ToRelatedContacts_AddressType"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.TaxTariff" Name="TaxTariff_AssocSet">
+                    <End EntitySet="ProductCollection" Role="FromRole_TaxTariff"/>
+                    <End EntitySet="TariffCollection" Role="ToRole_TaxTariff"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ToConvFactorFromSourceUnit" Name="ToConvFactorFromSourceUnit_AssocSet">
+                    <End EntitySet="SourceUnitCollection" Role="FromRole_ToConvFactorFromSourceUnit"/>
+                    <End EntitySet="ConversionFactorCollection" Role="ToRole_ToConvFactorFromSourceUnit"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ToProductFromTariff" Name="ToProductFromTariff_AssocSet">
+                    <End EntitySet="TariffCollection" Role="FromRole_ToProductFromTariff"/>
+                    <End EntitySet="ProductCollection" Role="ToRole_ToProductFromTariff"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ToProductFromQuantityUnit" Name="ToProductFromQuantityUnit_AssocSet">
+                    <End EntitySet="QuantityUnitCollection" Role="FromRole_ToProductFromQuantityUnit"/>
+                    <End EntitySet="ProductCollection" Role="ToRole_ToProductFromQuantityUnit"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.SODeliveryStatus" Name="SODeliveryStatus_AssocSet">
+                    <End EntitySet="SalesOrderCollection" Role="FromRole_SODeliveryStatus"/>
+                    <End EntitySet="DeliveryStatusCollection" Role="ToRole_SODeliveryStatus"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ProductsInSalesOrder" Name="ProductsInSalesOrder_AssocSet">
+                    <End EntitySet="SalesOrderLineItemCollection" Role="FromRole_ProductsInSalesOrder"/>
+                    <End EntitySet="ProductCollection" Role="ToRole_ProductsInSalesOrder"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ToBPFromBusinessPartnerRole" Name="ToBPFromBusinessPartnerRole_AssocSet">
+                    <End EntitySet="BusinessPartnerRoleCollection" Role="FromRole_ToBPFromBusinessPartnerRole"/>
+                    <End EntitySet="BusinessPartnerCollection" Role="ToRole_ToBPFromBusinessPartnerRole"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ToRelatedContacts" Name="ToRelatedContacts_AssocSet">
+                    <End EntitySet="BusinessPartnerCollection" Role="FromRole_ToRelatedContacts"/>
+                    <End EntitySet="ContactPersonCollection" Role="ToRole_ToRelatedContacts"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.DimensionUnits" Name="DimensionUnits_AssocSet">
+                    <End EntitySet="ProductCollection" Role="FromRole_DimensionUnits"/>
+                    <End EntitySet="DimensionUnitCollection" Role="ToRole_DimensionUnits"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ConversionFactors" Name="ConversionFactors_AssocSet">
+                    <End EntitySet="ProductCollection" Role="FromRole_ConversionFactors"/>
+                    <End EntitySet="ConversionFactorCollection" Role="ToRole_ConversionFactors"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ToProductFromProductTypes" Name="ToProductFromProductTypes_AssocSet">
+                    <End EntitySet="ProductTypeCollection" Role="FromRole_ToProductFromProductTypes"/>
+                    <End EntitySet="ProductCollection" Role="ToRole_ToProductFromProductTypes"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ToProductFromWeightUnit" Name="ToProductFromWeightUnit_AssocSet">
+                    <End EntitySet="WeightUnitCollection" Role="FromRole_ToProductFromWeightUnit"/>
+                    <End EntitySet="ProductCollection" Role="ToRole_ToProductFromWeightUnit"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ProductTypes" Name="ProductTypes_AssocSet">
+                    <End EntitySet="ProductCollection" Role="FromRole_ProductTypes"/>
+                    <End EntitySet="ProductTypeCollection" Role="ToRole_ProductTypes"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ToConvFactorFromTargetUnit" Name="ToConvFactorFromTargetUnit_AssocSet">
+                    <End EntitySet="TargetUnitCollection" Role="FromRole_ToConvFactorFromTargetUnit"/>
+                    <End EntitySet="ConversionFactorCollection" Role="ToRole_ToConvFactorFromTargetUnit"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ToProductFromDimensionUnit" Name="ToProductFromDimensionUnit_AssocSet">
+                    <End EntitySet="DimensionUnitCollection" Role="FromRole_ToProductFromDimensionUnit"/>
+                    <End EntitySet="ProductCollection" Role="ToRole_ToProductFromDimensionUnit"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ProductToSalesOrderLines" Name="ProductToSalesOrderLines_AssocSet">
+                    <End EntitySet="ProductCollection" Role="FromRole_ProductToSalesOrderLines"/>
+                    <End EntitySet="SalesOrderLineItemCollection" Role="ToRole_ProductToSalesOrderLines"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ToBPFromCountry" Name="ToBPFromCountry_AssocSet">
+                    <End EntitySet="CountryCollection" Role="FromRole_ToBPFromCountry"/>
+                    <End EntitySet="BusinessPartnerCollection" Role="ToRole_ToBPFromCountry"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ToBPFromGender" Name="ToBPFromGender_AssocSet">
+                    <End EntitySet="GenderCollection" Role="FromRole_ToBPFromGender"/>
+                    <End EntitySet="BusinessPartnerCollection" Role="ToRole_ToBPFromGender"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.SourceUnits" Name="SourceUnits_AssocSet">
+                    <End EntitySet="ConversionFactorCollection" Role="FromRole_SourceUnits"/>
+                    <End EntitySet="SourceUnitCollection" Role="ToRole_SourceUnits"/>
+                </AssociationSet>
+                <AssociationSet Association="ZKK_DPC_OCI.ToGender" Name="ToGender_AssocSet">
+                    <End EntitySet="BusinessPartnerCollection" Role="FromRole_ToGender"/>
+                    <End EntitySet="GenderCollection" Role="ToRole_ToGender"/>
+                </AssociationSet>
+                <FunctionImport Name="ConfirmSalesOrder" ReturnType="Edm.String" m:HttpMethod="GET">
+                    <Parameter MaxLength="0" Mode="In" Name="P2" Precision="0" Scale="0" Type="Edm.String"/>
+                </FunctionImport>
+                <FunctionImport Name="CancelSalesOrder" ReturnType="Edm.String" m:HttpMethod="GET">
+                    <Parameter MaxLength="0" Mode="In" Name="P1" Precision="0" Scale="0" Type="Edm.String"/>
+                </FunctionImport>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
