@@ -1,0 +1,15 @@
+#Wed Apr 22 13:10:21 UTC 2026
+MessageFlow_1005_AccessType=Non-Exclusive
+MessageFlow_1005_EncryptMessage=1
+MessageFlow_1005_ExpirationPeriod=30
+MessageFlow_1005_QueueName_outbound=PIPX01
+MessageFlow_1005_RetentionThresholdAlerting=2
+MessageFlow_1005_TransferExchangeProperties=0
+MessageFlow_1005_UseMessageCompression=1
+MessageFlow_1_clientCertificate.issuerDN=
+MessageFlow_1_clientCertificate.subjectDN=
+MessageFlow_1_senderAuthType=RoleBased
+MessageFlow_1_urlPath=/eip/cbr/02
+MessageFlow_1_userRole=ESBMessaging.send
+SAP_Sender=AB_CBR_Sender_2
+SAP_SenderInterface=si_item_async_ob

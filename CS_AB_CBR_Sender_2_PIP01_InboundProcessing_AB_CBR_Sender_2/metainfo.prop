@@ -1,0 +1,5 @@
+#Store metainfo properties
+#Thu Jul 30 10:30:16 UTC 2026
+SAP-MigrationApproach=PIPELINE
+SAP-PIPOMigrated=true
+description=System\: N75, System version\: 7.50, Pattern\: Content-Based Routing Asynchronous, Migration Approach\: Pipeline, Type\: Integrated Configuration, PO Artifact Name\: |CBR_Sender_2|si_item_async_ob|http\://demo.sap.com/eip/content-based-router||
