@@ -1,0 +1,165 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Example API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/example": {
+            "post": {
+                "summary": "Example endpoint",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "address": {
+                                        "type": "object",
+                                        "properties": {
+                                            "country": {
+                                                "type": "string",
+                                                "minLength": 2,
+                                                "maxLength": 2
+                                            },
+                                            "address_line1": {
+                                                "type": "string"
+                                            },
+                                            "address_line2": {
+                                                "type": "string"
+                                            },
+                                            "city": {
+                                                "type": "string"
+                                            },
+                                            "phone": {
+                                                "type": "string"
+                                            },
+                                            "street": {
+                                                "type": "string"
+                                            },
+                                            "state": {
+                                                "type": "string"
+                                            },
+                                            "postal_code": {
+                                                "type": "string",
+                                                "pattern": "^[0-9]{5}-[0-9]{3}$"
+                                            }
+                                        },
+                                        "additionalProperties": true
+                                    },
+                                    "identifiers": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "type": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": ["id", "type"],
+                                            "additionalProperties": false
+                                        }
+                                    },
+                                    "company_name": {
+                                        "type": "string"
+                                    },
+                                    "function": {
+                                        "type": "string"
+                                    },
+                                    "consents": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "privacy_statement": {
+                                                    "type": "string",
+                                                    "format": "uri"
+                                                },
+                                                "consent": {
+                                                    "type": "boolean"
+                                                },
+                                                "consent_type": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": ["privacy_statement", "consent", "consent_type"],
+                                            "additionalProperties": false
+                                        }
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    },
+                                    "business_segment": {
+                                        "type": "string"
+                                    },
+                                    "language": {
+                                        "type": "string",
+                                        "minLength": 2,
+                                        "maxLength": 2
+                                    },
+                                    "permission": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "first_name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "additionalProperties": false
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "type": "string"
+                                                },
+                                                "result": {
+                                                    "type": "object"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

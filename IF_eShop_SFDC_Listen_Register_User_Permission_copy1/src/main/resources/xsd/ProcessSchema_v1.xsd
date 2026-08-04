@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="root">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="iFlowChecks">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="requiredFielsAvailable" type="xs:string" minOccurs="0"/>
+							<xs:element name="permissionCount0" type="xs:string" minOccurs="0"/>
+							<xs:element name="permissionCount1" type="xs:string" minOccurs="0"/>
+							<xs:element name="permissionNotValid" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="address" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="country" type="xs:string" minOccurs="0"/>
+							<xs:element name="address_line2" type="xs:string" minOccurs="0"/>
+							<xs:element name="address_line1" type="xs:string" minOccurs="0"/>
+							<xs:element name="city" type="xs:string" minOccurs="0"/>
+							<xs:element name="phone" type="xs:string" minOccurs="0"/>
+							<xs:element name="street" type="xs:string" minOccurs="0"/>
+							<xs:element name="state" type="xs:string" minOccurs="0"/>
+							<xs:element name="postal_code" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="identifiers" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="identifier" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="id" type="xs:string" minOccurs="0"/>
+										<xs:element name="type" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="company_name" type="xs:string" minOccurs="0"/>
+				<xs:element name="function" type="xs:string" minOccurs="0"/>
+				<xs:element name="consents" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="consent" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="privacy_statement" type="xs:string" minOccurs="0"/>
+										<xs:element name="consent" type="xs:string" minOccurs="0"/>
+										<xs:element name="consent_type" type="xs:string" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="last_name" type="xs:string" minOccurs="0"/>
+				<xs:element name="business_segment" type="xs:string" minOccurs="0"/>
+				<xs:element name="language" type="xs:string" minOccurs="0"/>
+				<xs:element name="permission" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="item" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="first_name" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

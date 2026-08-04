@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><parameters><parameter>
+    <key/>
+    <name>middle</name>
+    <type>xsd:string</type>
+    <isRequired>false</isRequired>
+    <constraint/>
+    <description>my desc</description>
+    <additionalMetadata/>
+  </parameter><parameter>
+    <key/>
+    <name>userrole</name>
+    <type>xsd:string</type>
+    <isRequired>false</isRequired>
+    <constraint/>
+    <description>Test des</description>
+    <additionalMetadata/>
+  </parameter><parameter>
+    <key/>
+    <name>addr</name>
+    <type>xsd:string</type>
+    <isRequired>false</isRequired>
+    <constraint/>
+    <description>mu afress</description>
+    <additionalMetadata/>
+  </parameter><parameter>
+    <key/>
+    <name>auth</name>
+    <type>xsd:string</type>
+    <isRequired>false</isRequired>
+    <constraint/>
+    <description>auth ba</description>
+    <additionalMetadata>
+      <isCombobox>true</isCombobox>
+    </additionalMetadata>
+  </parameter><param_references><reference attribute_category="Sender" attribute_id="/attrId::userRole" attribute_uilabel="" param_key="userrole"/><reference attribute_category="Sender" attribute_id="/attrId::urlPath" attribute_uilabel="" param_key="addr"/><reference attribute_category="Sender" attribute_id="/attrId::senderAuthType" attribute_uilabel="" param_key="auth"/><reference attribute_category="Receiver" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.17.0/attrId::httpAddressWithoutQuery" attribute_uilabel="Address" param_key="middle"/></param_references></parameters>

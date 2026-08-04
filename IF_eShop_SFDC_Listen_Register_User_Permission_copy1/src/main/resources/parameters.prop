@@ -1,0 +1,5 @@
+#Thu Mar 05 12:32:32 UTC 2026
+middle=sap
+auth=RoleBased
+userrole=ESBMessaging.send
+addr=/API0003/Listen_Register_User_Permission
