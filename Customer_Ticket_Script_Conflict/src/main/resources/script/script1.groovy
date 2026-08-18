@@ -52,7 +52,7 @@ def Message processCustomerDataOData(Message message) {
                 'comparisonKey': '',
                 'category': 'PCRM-GL CQC',
                 'isRisk': false,
-                'message': "[CEA Go-live] ${customerName} ${customerID}",
+                'message': "For customer ${customerName} a go live has been identified as being at risk.",
                 'reason': '',
                 'severity': '',
                 'customer_number': customerID,
@@ -68,9 +68,9 @@ def Message processCustomerDataOData(Message message) {
                 'information': [
                     'go_live_date': goLiveDate,
                     'product': solutionArea,
-                    'action': 'Create Incident',
+                    'action': '',
                     'mitigation_plan': '',
-                    'message': "[CEA Go-live] ${customerName} ${customerID}",
+                    'message': "For customer ${customerName} a go live has been identified as being at risk.",
                     'reason': '',
                     'case_payload': '',
                     'customer_number': customerID,
@@ -78,9 +78,12 @@ def Message processCustomerDataOData(Message message) {
                     'customer_crm_id': customerCrmID,
                     'escalation_id': '',
                     'escalation_sys_id': '',
-                    'ci_tenant': '',
-                    'deployment_name': '',
-                    'component': 'SV-ES-GL',
+                    'u_escalation_type': '5',
+                    'u_assignment_group': 'MCC Polymath',
+                    'u_type': 'MCCSOS: Standard Account Escalation',
+                    'req_reason': '20',
+                    'req_title': 'PCRM CCM Request',
+                    'solution_area': solutionArea,
                     'lpr_id': entry.Wave_Scope_ID,
                     'lpr_name': entry.Wave_Scope_Name ?: ''
                 ]
@@ -105,4 +108,5 @@ def String normalizeODataDate(String value) {
     }
     return value
 }
+
 
